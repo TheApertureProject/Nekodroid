@@ -1,2 +1,1 @@
-
-worker: python3 kn.py
+worker: python3 main.py
