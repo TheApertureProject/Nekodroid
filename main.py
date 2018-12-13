@@ -2,8 +2,6 @@ import logging
 logging.basicConfig(level='INFO')
 
 import sys
-import os
-
 try:
     import json
     import asyncio
@@ -47,13 +45,14 @@ Kanna is connecting...""")
 async def on_connect():
     print('Successfully connected !')
 
-@bot.event
-async def on_command_error(ctx, exception):
-    await ctx.send(f'The following error happened during operation : ```{exception}``` Please check your command and then retry.')
+#@bot.event
+#async def on_command_error(ctx, exception):
+#    await ctx.send(f'The following error happened during operation : ```{exception}``` Please check your command and then retry.')
 
 @bot.event
 async def on_ready():
     loaded = 0
+    bot.remove_command('help')
     for module in modules:
         try:
             logging.info('Loading %s', module)
