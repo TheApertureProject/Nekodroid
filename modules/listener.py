@@ -52,10 +52,10 @@ class Listeners:
         b = "Member count : {guild.member_count}"
         c = "Created at {guild.created_at}"
         d = "Guild Nr. `{len(bot.servers)}`"
-        f = f"""{a}
-        {b}
-        {c}
-        {d}"""
+        f = f"""**{a}**
+        **{b}**
+        **{c}**
+        **{d}**"""
         e = discord.Embed(description='', title=f'Server Left - {guild.name})', color=16744448, timestamp=datetime.utcnow())
         e.set_thumbnail(url=guild.icon_url)
         e.add_field(name='Server Info', value=f)
