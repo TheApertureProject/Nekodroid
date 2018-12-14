@@ -27,7 +27,7 @@ class Listeners:
     async def on_guild_join(self, guild):
         join = self.bot.get_channel(462875598184775700)
         try:
-            invitelink = await guild.create_invite(reason="Allow users to join your server through bot's server")
+            invitelink = await guild.create_invite()
             invitedialog = f'[Join]({invitelink}'
         except Exception as e :
             print(e.args)
