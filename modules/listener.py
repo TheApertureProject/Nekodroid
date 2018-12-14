@@ -32,10 +32,10 @@ class Listeners:
             invitedialog = f'[Join]({invitelink}'
         except:
             invitedialog = 'No invite link'
-	a = f"""Owned by **{guild.owner}**
+        a = f"""Owned by **{guild.owner}**
         Member count : `{guild.member_count}`
         Created at `{guild.created_at}`
-	Guild Nr. `{len(bot.servers)}`"""
+        Guild Nr. `{len(bot.servers)}`"""
         e = discord.Embed(description=f'Server Joined - {guild.name})', title=invitedialog, color=1565439, timestamp=datetime.utcnow())
         e.set_thumbnail(url=guild.icon_url)
 	e.add_field(name='Server info', value=a)
@@ -44,10 +44,10 @@ class Listeners:
     async def on_guild_remove(self, guild):
         my_guild = bot.get_guild(462871882916560896)
         join = my_guild.get_channel(462875598184775700)
-	a = f"""Owned by **{guild.owner}**
+        a = f"""Owned by **{guild.owner}**
         Member count : `{guild.member_count}`
         Created at `{guild.created_at}`
-	Guild Nr. `{len(bot.servers)}`"""
+        Guild Nr. `{len(bot.servers)}`"""
 	e = discord.Embed(description='', title=f'Server Left - {guild.name})', color=16744448, timestamp=datetime.utcnow())
 	e.set_thumbnail(url=guild.icon_url)
         e.add_field(name='Server Info', value=a)
