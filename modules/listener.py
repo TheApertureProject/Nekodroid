@@ -27,20 +27,31 @@ class Listeners:
     async def on_guild_join(self, guild):
         my_guild = bot.get_guild(462871882916560896)
         join = my_guild.get_channel(462875598184775700)
-        e = discord.Embed(description='', title='Server Joined - {}'.format(guild.name), color=1565439, timestamp=datetime.utcnow())
-        e.add_field(name='Member count : {}'.format(guild.member_count), value='Created at {}'.format(guild.created_at))
-        e.set_footer(text='Kanna - The Kawaii Discord bot')
-        await bot.change_presence(activity=discord.Game(name=f'with {len(bot.users)} users, on {len(bot.guilds)} servers | k!help'))
-        await join.send(embed=e)
+	try:
+	    invitelink = await guild.create_invite(reason="Allow users to join your server through bot's server")
+            invitedialog = f'[Join]({invitelink}'
+        except:
+            invitedialog = 'No invite link'
+	a = f"""Owned by **{guild.owner}**
+        Member count : `{guild.member_count}`
+        Created at `{guild.created_at}`
+	Guild Nr. `{len(bot.servers)}`"""
+        e = discord.Embed(description=f'Server Joined - {guild.name})', title=invitedialog, color=1565439, timestamp=datetime.utcnow())
+        e.set_thumbnail(url=guild.icon_url)
+	e.add_field(name='Server info', value=a)
+	await join.send(embed=e)
 
     async def on_guild_remove(self, guild):
         my_guild = bot.get_guild(462871882916560896)
         join = my_guild.get_channel(462875598184775700)
-        e = discord.Embed(description='', title='Server left - {}'.format(guild.name), color=16744448, timestamp=datetime.utcnow())
-        e.add_field(name='Member count : {}'.format(guild.member_count), value='Created at {}'.format(guild.created_at))
-        e.set_footer(text='Kanna - The Kawaii Discord bot')
-        await bot.change_presence(activity=discord.Game(name=f'with {len(bot.users)} users, on {len(bot.guilds)} servers | k!help'))
-        await join.send(embed=e)
+	a = f"""Owned by **{guild.owner}**
+        Member count : `{guild.member_count}`
+        Created at `{guild.created_at}`
+	Guild Nr. `{len(bot.servers)}`"""
+	e = discord.Embed(description='', title=f'Server Left - {guild.name})', color=16744448, timestamp=datetime.utcnow())
+	e.set_thumbnail(url=guild.icon_url)
+        e.add_field(name='Server Info', value=a)
+	await join.send(embed=e)
 
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.BadArgument):
