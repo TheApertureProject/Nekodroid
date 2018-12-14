@@ -11,7 +11,6 @@ class General:
     async def ping(self, ctx):
         await ctx.send('Pong !')
 
-    
     @commands.command()
     async def pong(self, ctx):
         await ctx.send('Ping !')
