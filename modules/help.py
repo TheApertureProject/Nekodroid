@@ -6,6 +6,7 @@ import json
 with open('./config.json', 'r') as cjson:
     config = json.load(cjson)
 
+VERSION = config["version"]
 PREFIX = config["prefix"]
 prefiximg = ':prefiximg:505768310227599371'
 
