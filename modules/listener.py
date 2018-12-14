@@ -34,7 +34,7 @@ class Listeners:
         a = f"""Owned by **{guild.owner}**
         Member count : `{guild.member_count}`
         Created at `{guild.created_at}`
-        Guild Nr. `{len(bot.servers)}`"""
+        Guild Nr. `{len(self.bot.servers)}`"""
         e = discord.Embed(description=f'Server Joined - {guild.name})', title=invitedialog, color=1565439, timestamp=datetime.utcnow())
         e.set_thumbnail(url=guild.icon_url)
         e.add_field(name='Server info', value=a)
@@ -45,7 +45,7 @@ class Listeners:
         a = f"""Owned by **{guild.owner}**
         Member count : `{guild.member_count}`
         Created at `{guild.created_at}`
-        Guild Nr. `{len(bot.servers)}`"""
+        Guild Nr. `{len(self.bot.servers)}`"""
         e = discord.Embed(description='', title=f'Server Left - {guild.name})', color=16744448, timestamp=datetime.utcnow())
         e.set_thumbnail(url=guild.icon_url)
         e.add_field(name='Server Info', value=a)
