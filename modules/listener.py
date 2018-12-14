@@ -29,7 +29,8 @@ class Listeners:
         try:
             invitelink = await guild.create_invite(reason="Allow users to join your server through bot's server")
             invitedialog = f'[Join]({invitelink}'
-        except:
+        except Exception as e :
+            print(e.args)
             invitedialog = 'No invite link'
         a = f"""Owned by **{guild.owner}**
         Member count : `{guild.member_count}`
