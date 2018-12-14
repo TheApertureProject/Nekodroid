@@ -24,8 +24,8 @@ class Listeners:
 		    role = discord.utils.get(member.guild.roles, name='Members')
 		    await member.add_roles(role)
 
-    async def on_guild_join(self, guild, ctx):
-        join = ctx.bot.get_channel(462875598184775700)
+    async def on_guild_join(self, guild):
+        join = self.bot.get_channel(462875598184775700)
         try:
             invitelink = await guild.create_invite(reason="Allow users to join your server through bot's server")
             invitedialog = f'[Join]({invitelink}'
@@ -40,8 +40,8 @@ class Listeners:
         e.add_field(name='Server info', value=a)
         await join.send(embed=e)
 
-    async def on_guild_remove(self, guild, ctx):
-        join = ctx.bot.get_channel(462875598184775700)
+    async def on_guild_remove(self, guild):
+        join = self.bot.get_channel(462875598184775700)
         a = f"""Owned by **{guild.owner}**
         Member count : `{guild.member_count}`
         Created at `{guild.created_at}`
