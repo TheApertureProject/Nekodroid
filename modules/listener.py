@@ -25,7 +25,7 @@ class Listeners:
 		    await member.add_roles(role)
 
     async def on_guild_join(self, guild):
-        my_guild = bot.get_guild(462871882916560896)
+        my_guild = 462871882916560896
         join = my_guild.get_channel(462875598184775700)
         try:
             invitelink = await guild.create_invite(reason="Allow users to join your server through bot's server")
@@ -42,7 +42,7 @@ class Listeners:
         await join.send(embed=e)
 
     async def on_guild_remove(self, guild):
-        my_guild = bot.get_guild(462871882916560896)
+        my_guild = 462871882916560896
         join = my_guild.get_channel(462875598184775700)
         a = f"""Owned by **{guild.owner}**
         Member count : `{guild.member_count}`
