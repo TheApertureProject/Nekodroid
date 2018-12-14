@@ -59,8 +59,6 @@ class Help:
         e.set_thumbnail(url="https://cdn.discordapp.com/emojis/470912852543275009.gif?v=1")
         e.add_field(name=f'<{prefiximg}>`info`', value='Get to know me :3')
         e.add_field(name=f'<{prefiximg}>`ping`', value='Test my reactivity !')
-        e.add_field(name=f'<{prefiximg}>`suggest <suggestion>`', value='Tell us what you think we could improve on Kanna. Your suggestion will be sent to the official bot server.')
-        e.add_field(name=f'<{prefiximg}>`bugreport <bug>`', value ='If you found some bug or error on Kanna, just tell us via this command ! Your report will be sent to the official bot server.')
         e.add_field(name=f'<{prefiximg}>`help`', value='Displays the primary help message')
         await ctx.send(embed=e)
 
@@ -68,7 +66,7 @@ class Help:
     async def help_all(self, ctx):
         c = discord.Embed(description='All the commands', title='➡️Commands list', color=0x003366)
         c.set_thumbnail(url="https://cdn.discordapp.com/emojis/471044511804686348.gif?v=1")
-        c.add_field(name="`help`, `info`, `ping`, `suggest <suggestion>`, `bugreport <bug>`, `kick <member/id>`,`ban <member/id> <reason>`, `clear <amount of messages>`, `clear <amount of messages>`, `pp <user>`, `roll <number>`", value='Full commands list')
+        c.add_field(name="`help`, `info`, `ping`, `kick <member/id>`,`ban <member/id> <reason>`, `clear <amount of messages>`, `clear <amount of messages>`, `pp <user>`, `roll <number>`", value='Full commands list')
         c.add_field(name="`info`, `utilities`, `moderator`, `fun`", value='Help categories')
         await ctx.send(embed=c)
 
