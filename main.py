@@ -28,10 +28,10 @@ bot.ready = False
 
 async def status():
     while True:
-        names = [f'{PREFIX}help', 'on AP3RTURE',]
+        names = [f'{PREFIX}help', 'on AP3RTURE', f'on {len(bot.guilds)} servers', f'with {len(bot.users)}']
         for name in names:
             await bot.change_presence(activity=discord.Game(name=name))
-            await asyncio.sleep(10)
+            await asyncio.sleep(7)
 
 print("""
             _  __                    _  
@@ -44,10 +44,6 @@ Kanna is connecting...""")
 @bot.event
 async def on_connect():
     print('Successfully connected !')
-
-#@bot.event
-#async def on_command_error(ctx, exception):
-#    await ctx.send(f'The following error happened during operation : ```{exception}``` Please check your command and then retry.')
 
 @bot.event
 async def on_ready():
