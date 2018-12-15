@@ -2,15 +2,15 @@ import discord
 from discord.ext import commands
 
 class General:
-
+    
     def __init__(self, bot):
         self.bot = bot
         self.config = bot.config
-
+    
     @commands.command()
     async def ping(self, ctx):
         await ctx.send('Pong !')
-
+    
     @commands.command()
     async def pong(self, ctx):
         await ctx.send('Ping !')
