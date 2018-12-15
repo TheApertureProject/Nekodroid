@@ -14,6 +14,12 @@ class Utilities:
         e.set_image(url=usr.avatar_url)
         await ctx.send(embed=e)
 
+    @commands.command(aliases=['qrcode'])
+    async def qr(ctx, *, thing):
+        e = discord.Embed(description=f"QR code request for : `{thing}`", title='QR Generator', color=0x000000)
+        e.set_image(url=f"https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={thing}")
+        await ctx.send(embed=e)
+
     @commands.command()
     async def wiki(self, ctx, *, searchterm):
         await ctx.send(f"***Wikipedia Search*** 🔀 https://en.wikipedia.org/wiki/{searchterm}")
