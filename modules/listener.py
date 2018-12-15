@@ -26,19 +26,13 @@ class Listeners:
 
     async def on_guild_join(self, guild):
         join = self.bot.get_channel(462875598184775700)
-        try:
-            invitelink = await guild.create_invite()
-            invitedialog = f'[Join]({invitelink}'
-        except Exception as e :
-            print(e.args)
-            invitedialog = 'No invite link'
         a = f"""Owned by **{guild.owner}**
         Member count : `{guild.member_count}`
         Created at `{guild.created_at}`
         Guild Nr. `{len(self.bot.guilds)}`"""
-        e = discord.Embed(description=f'Server Joined - {guild.name})', title=invitedialog, color=1565439, timestamp=datetime.utcnow())
+        e = discord.Embed(description=f'Server Joined - {guild.name})', title='Server information', color=1565439, timestamp=datetime.utcnow())
         e.set_thumbnail(url=guild.icon_url)
-        e.add_field(name='Server info', value=a)
+        e.add_field(name='', value=f'```{a}```')
         await join.send(embed=e)
 
     async def on_guild_remove(self, guild):
@@ -49,7 +43,7 @@ class Listeners:
         Guild Nr. `{len(self.bot.guilds)}`"""
         e = discord.Embed(description='', title=f'Server Left - {guild.name})', color=16744448, timestamp=datetime.utcnow())
         e.set_thumbnail(url=guild.icon_url)
-        e.add_field(name='Server Info', value=a)
+        e.add_field(name='', value=f'```{a}```')
         await join.send(embed=e)
 
     async def on_command_error(self, ctx, error):
