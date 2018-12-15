@@ -32,7 +32,7 @@ class Listeners:
         Guild Nr. `{len(self.bot.guilds)}`"""
         e = discord.Embed(description=f'Server Joined - {guild.name})', title='Server information', color=1565439, timestamp=datetime.utcnow())
         e.set_thumbnail(url=guild.icon_url)
-        e.add_field(name='', value=f'```{a}```')
+        e.add_field(name='ℹ️ Info', value=f'```{a}```')
         await join.send(embed=e)
 
     async def on_guild_remove(self, guild):
@@ -43,7 +43,7 @@ class Listeners:
         Guild Nr. `{len(self.bot.guilds)}`"""
         e = discord.Embed(description='', title=f'Server Left - {guild.name})', color=16744448, timestamp=datetime.utcnow())
         e.set_thumbnail(url=guild.icon_url)
-        e.add_field(name='', value=f'```{a}```')
+        e.add_field(name='ℹ️ Info', value=f'```{a}```')
         await join.send(embed=e)
 
     async def on_command_error(self, ctx, error):
