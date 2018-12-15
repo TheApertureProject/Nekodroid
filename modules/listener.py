@@ -30,9 +30,9 @@ class Listeners:
         Member count : `{guild.member_count}`
         Created at `{guild.created_at}`
         Guild Nr. `{len(self.bot.guilds)}`"""
-        e = discord.Embed(description=f'Server Joined - {guild.name})', title='Server information', color=1565439, timestamp=datetime.utcnow())
+        e = discord.Embed(description=guild.name, title='Server Joined', color=1565439, timestamp=datetime.utcnow())
         e.set_thumbnail(url=guild.icon_url)
-        e.add_field(name='ℹ️ Info', value=f'```{a}```')
+        e.add_field(name='Info', value=a)
         await join.send(embed=e)
 
     async def on_guild_remove(self, guild):
@@ -41,9 +41,9 @@ class Listeners:
         Member count : `{guild.member_count}`
         Created at `{guild.created_at}`
         Guild Nr. `{len(self.bot.guilds)}`"""
-        e = discord.Embed(description='', title=f'Server Left - {guild.name})', color=16744448, timestamp=datetime.utcnow())
+        e = discord.Embed(description=guild.name, title='Server Left', color=16744448, timestamp=datetime.utcnow())
         e.set_thumbnail(url=guild.icon_url)
-        e.add_field(name='ℹ️ Info', value=f'```{a}```')
+        e.add_field(name='Info', value=a)
         await join.send(embed=e)
 
     async def on_command_error(self, ctx, error):
