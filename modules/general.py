@@ -17,7 +17,7 @@ class General:
 
     @commands.command()
     async def invite(self, ctx):
-        await ctx.send('***Invite Link*** <https://discordapp.com/oauth2/authorize?client_id=467332623677521940&scope=bot&permissions=2146958591>')
+        await ctx.send('***Invite Link*** 🔀 <https://discordapp.com/oauth2/authorize?client_id=467332623677521940&scope=bot&permissions=2146958591>')
 
 def setup(bot):
     bot.add_cog(General(bot))
