@@ -33,14 +33,6 @@ async def status():
             await bot.change_presence(activity=discord.Game(name=name))
             await asyncio.sleep(7)
 
-print("""
-            _  __                    _  
-           | |/ /__ _ _ _  _ _  __ _| | 
-           | ' </ _` | ' \| ' \/ _` |_| 
-           |_|\_\__,_|_||_|_||_\__,_(_)
-
-Kanna is connecting...""")
-
 @bot.event
 async def on_connect():
     print('Successfully connected !')
