@@ -28,7 +28,7 @@ class Help:
     async def info(self, ctx):
         a = """Created by Poulpy#9355
 [Discord Bot List page](https://discordbots.org/bot/467332623677521940) - Upvote Kanna and support us !
-Hosted for free on [Heroku](https://www.heroku.com/)
+Hosted on [Heroku](https://www.heroku.com/)
 Running on [discord.py v1.0.0a](https://discordpy.readthedocs.io/en/latest/api.html)
 [Invite link](https://discordapp.com/oauth2/authorize?client_id=467332623677521940&scope=bot&permissions=2146958591)
 [Official Server](https://discord.gg/PTT9UpZ)"""
