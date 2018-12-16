@@ -23,10 +23,6 @@ class Utilities:
     @commands.command()
     async def wiki(self, ctx, *, searchterm):
         await ctx.send(f"***Wikipedia Search*** 🔀 https://en.wikipedia.org/wiki/{searchterm}")
-    
-    @commands.command()
-    async def google(self, ctx, *, searchterm):
-        await ctx.send(f"***Google Search*** 🔀 https://www.google.com/search?q={searchterm}")
 
 def setup(bot):
     bot.add_cog(Utilities(bot))
