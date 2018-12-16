@@ -15,7 +15,11 @@ class General:
     async def pong(self, ctx):
         await ctx.send('Ping !')
 
-    @commands.command()
+    @commands.command(aliases=['support'])
+    async def join(self, ctx):
+        await ctx.send('***Support Server*** 🔀 https://discord.gg/QE2yg6G')
+
+    @commands.command(aliases=['add'])
     async def invite(self, ctx):
         await ctx.send('***Invite Link*** 🔀 <https://discordapp.com/oauth2/authorize?client_id=467332623677521940&scope=bot&permissions=2146958591>')
 
