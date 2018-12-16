@@ -50,7 +50,7 @@ Running on [discord.py v1.0.0a](https://discordpy.readthedocs.io/en/latest/api.h
 `BAN_MEMBERS` ban
 `ADD_REACTIONS` *on_command_error* error handler
 `ADMINISTRATOR` Facultative - no use for now"""
-        e = discord.Embed(description=a, title='Permissions management', color=0xF4A2FF)
+        e = discord.Embed(description=a, title='Permissions requirements', color=0xF4A2FF)
         e.set_thumbnail(url="https://cdn.discordapp.com/attachments/476653267036930049/523888437493891087/1OoXboCzk0gYvTNwNnV4S9A2x.png")
         e.set_author(name=self.bot.user.name, icon_url=self.bot.user.avatar_url)
         await ctx.send(embed=e)
