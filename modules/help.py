@@ -77,7 +77,6 @@ class Help:
         c.add_field(name=f'<{prefiximg}>`pp <user>`', value='Get the profile picture of some user')
         c.add_field(name=f'<{prefiximg}>`qr <url>`', value='Shorten a url adress (or a simple text string) into a QR Code ~')
         c.add_field(name=f'<{prefiximg}>`wiki <request>`', value='Search WikiPedia for whatever you want !')
-        c.add_field(name=f'<{prefiximg}>`google <request>`', value='Search Google for whatever you want !')
         await ctx.send(embed=c)
 
     @help.command(name="moderator")
