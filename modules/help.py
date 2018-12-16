@@ -41,7 +41,7 @@ Running on [discord.py v1.0.0a](https://discordpy.readthedocs.io/en/latest/api.h
         e.set_author(name=self.bot.user.name, icon_url=self.bot.user.avatar_url)
         await ctx.send(embed=e)
 
-    @commands.command(aliases='perms', 'permission', 'requirements', 'requirement')
+    @commands.command(aliases=['perms', 'permission', 'requirements', 'requirement'])
     async def permissions(self, ctx):
         a = """`SEND_MESSAGES` All commands
 `EMBED_LINKS` Embedded commands
