@@ -37,7 +37,7 @@ class Help:
         e.set_thumbnail(url="https://media.discordapp.net/attachments/489041727697584148/505805443453419541/1540620568476.png?width=376&height=376")
         e.add_field(name="Information", value=a)
         e.set_footer(text=VERSION)
-        e.set_author(name=bot.user.name, icon_url=bot.user.avatar_url)
+        e.set_author(name=self.bot.user.name, icon_url=self.bot.user.avatar_url)
         await ctx.send(embed=e)
 
     @commands.group(invoke_without_command=True, aliases=['hlp', 'commandlist', 'commands'])
