@@ -1,6 +1,9 @@
 import discord
 from discord.ext import commands
 import datetime
+import googletrans
+from googletrans import Translator
+translator = Translator()
 
 class Utilities:
 
@@ -19,6 +22,15 @@ class Utilities:
         e = discord.Embed(description=f"QR code request for : `{thing}`", title='QR Generator', color=0x000000)
         e.set_image(url=f"https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={thing}")
         await ctx.send(embed=e)
+
+    @commands.command()
+    async def translate(ctx, *, term):
+        newterm = translator.translate(term)
+        a = f"""f
+***Input*** 🔀 {term}
+***Translation*** 🔀 {newterm}"""
+        await ctx.send(a)
+        
 
     @commands.command()
     async def wiki(self, ctx, *, searchterm):
