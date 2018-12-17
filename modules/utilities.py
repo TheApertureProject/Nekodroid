@@ -25,10 +25,13 @@ class Utilities:
 
     @commands.command()
     async def translate(self, ctx, *, term):
-        newterm = translator.translate(term)
-        a = f"""f
+        term = translator.translate(term)
+        for translation in newterm:
+            term2 = translation.text
+        a = f"""
 ***Input*** 🔀 {term}
-***Translation*** 🔀 {newterm}"""
+***Translation*** 🔀 {term2}"""
+        e = discord.Embed(description="From any language to english c:", title='Translation', color=0x0099ff)
         await ctx.send(a)
         
 
