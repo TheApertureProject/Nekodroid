@@ -24,7 +24,7 @@ class Utilities:
         await ctx.send(embed=e)
 
     @commands.command()
-    async def translate(ctx, *, term):
+    async def translate(self, ctx, *, term):
         newterm = translator.translate(term)
         a = f"""f
 ***Input*** 🔀 {term}
