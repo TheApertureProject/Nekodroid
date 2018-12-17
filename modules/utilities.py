@@ -25,7 +25,7 @@ class Utilities:
 
     @commands.command()
     async def translate(self, ctx, *, term):
-        term = translator.translate(term)
+        newterm = translator.translate(term)
         for translation in newterm:
             term2 = translation.text
         a = f"""
