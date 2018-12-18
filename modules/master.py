@@ -17,10 +17,8 @@ class Master:
     @commands.check(is_owner)
     @commands.command(pass_context=True)
     async def say(self, ctx, channel: discord.TextChannel, *, text):
-        try:
-            await ctx.channel.send(text)
-        except Exception as e:
-            print(e.args)
+        await ctx.message.delete()
+        await channel.send(text)
 
     @say.error
     async def say_handler(self, ctx, err):
