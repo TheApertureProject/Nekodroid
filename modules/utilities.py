@@ -23,15 +23,15 @@ class Utilities:
         e.set_image(url=f"https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={thing}")
         await ctx.send(embed=e)
 
-    @commands.command()
+    @commands.command(aliases=['tl', 'traduce'])
     async def translate(self, ctx, *, term):
-        newterm = translator.translate(term)
-        for translation in newterm:
-            term2 = translation.text
+        translator.translate(term)
+        term2 = translated.text
         a = f"""
 ***Input*** 🔀 {term}
 ***Translation*** 🔀 {term2}"""
-        e = discord.Embed(description="From any language to english c:", title='Translation', color=0x0099ff)
+        e = discord.Embed(description=a, title='Translation', color=0x0099ff)
+        e.set_thumbnail(url='https://media.discordapp.net/attachments/476653267036930049/524259270234079232/Google_Translate_logo.svg.png?width=301&height=301')
         await ctx.send(a)
         
 
