@@ -25,10 +25,9 @@ class Utilities:
 
     @commands.command(aliases=['tl', 'traduce'])
     async def translate(self, ctx, *, term):
-        translator.translate(term)
+        translated = translator.translate(term)
         term2 = translated.text
-        a = f"""
-***Input*** 🔀 {term}
+        a = f"""***Input*** 🔀 {term}
 ***Translation*** 🔀 {term2}"""
         e = discord.Embed(description=a, title='Translation', color=0x0099ff)
         e.set_thumbnail(url='https://media.discordapp.net/attachments/476653267036930049/524259270234079232/Google_Translate_logo.svg.png?width=301&height=301')
