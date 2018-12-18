@@ -89,9 +89,10 @@ Running on [discord.py v1.0.0a](https://discordpy.readthedocs.io/en/latest/api.h
     async def help_utilities(self, ctx):
         c = discord.Embed(description='Utilities', title='➡️Commands list', color=0x003366)
         c.set_thumbnail(url="https://cdn.discordapp.com/emojis/395627468276367370.png?v=1")
+        c.add_field(name=f'<{prefiximg}>`translate <text>`', value='Translate a text string from any language to english')
         c.add_field(name=f'<{prefiximg}>`pp <user>`', value='Get the profile picture of some user')
-        c.add_field(name=f'<{prefiximg}>`qr <url>`', value='Shorten a url adress (or a simple text string) into a QR Code ~')
-        c.add_field(name=f'<{prefiximg}>`wiki <request>`', value='Search WikiPedia for whatever you want !')
+        c.add_field(name=f'<{prefiximg}>`qr <url>`', value='Shorten a url adress (or a simple text string) into a QR Code')
+        c.add_field(name=f'<{prefiximg}>`wiki <request>`', value='Search WikiPedia')
         await ctx.send(embed=c)
 
     @help.command(name="moderator")
