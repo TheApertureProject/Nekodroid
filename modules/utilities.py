@@ -36,6 +36,7 @@ class Utilities:
     @commands.command(aliases=['emoji', 'loot'])
     async def emote(self, ctx, *, emote: discord.Emoji):
         e = discord.Embed(description=f"Emoji `{emote.name}` requested", title='Emoji', url=emote.url, color=0x0099ff)
+        e.set_thumbnail(url=emote.url)
         await ctx.send(embed=e)
 
     @commands.command()
