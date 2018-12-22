@@ -92,6 +92,7 @@ Running on [discord.py v1.0.0a](https://discordpy.readthedocs.io/en/latest/api.h
         c.add_field(name=f'<{prefiximg}>`translate <text>`', value='Translate a text string from any language to english')
         c.add_field(name=f'<{prefiximg}>`pp <user>`', value='Get the profile picture of some user')
         c.add_field(name=f'<{prefiximg}>`qr <url>`', value='Shorten a url adress (or a simple text string) into a QR Code')
+        c.add_field(name=f'<{prefiximg}>`emote <emoji>`', value='Get the download link of some emoji')
         c.add_field(name=f'<{prefiximg}>`wiki <request>`', value='Search WikiPedia')
         await ctx.send(embed=c)
 
