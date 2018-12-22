@@ -33,6 +33,10 @@ class Utilities:
         e.set_thumbnail(url='https://media.discordapp.net/attachments/476653267036930049/524259270234079232/Google_Translate_logo.svg.png?width=301&height=301')
         await ctx.send(embed=e)
         
+    @commands.command(aliases=['emoji', 'loot'])
+    async def emote(self, ctx, *, emote: discord.Emoji):
+        e = discord.Embed(description=f"Emoji `{emote.name}` requested", title='Emoji', url=emote.url, color=0x0099ff)
+        await ctx.send(e)
 
     @commands.command()
     async def wiki(self, ctx, *, searchterm):
