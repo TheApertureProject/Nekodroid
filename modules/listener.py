@@ -35,7 +35,7 @@ Guild Nr. `{len(self.bot.guilds)}`"""
         e.add_field(name='Info', value=a)
         await join.send(embed=e)
         if len(self.bot.guilds)>100:
-            text3r="As your guild counts more than a hundred of members, a special role await you on [Kanna's support server](https://discord.gg/PTT9UpZ). Joint it now and as **Poulpy#9355** to get it ! ^^"
+            text3r="As your guild counts more than a hundred of members, a special role await you on [Kanna's support server](https://discord.gg/PTT9UpZ) ! Feel free to join it and ask **Poulpy#9355** to get it."
         else:
             text3r="Don't forget to join [Kanna's support server](https://discord.gg/PTT9UpZ) for more info about me & updates."
         try:
