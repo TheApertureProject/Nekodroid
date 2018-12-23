@@ -34,6 +34,17 @@ class Listeners:
         e.set_thumbnail(url=guild.icon_url)
         e.add_field(name='Info', value=a)
         await join.send(embed=e)
+        if len(bot.guilds)>100:
+            text3r="As your guild counts more than a hundred of members, a special role await you on [Kanna's support server](https://discord.gg/PTT9UpZ). Joint it now and as **Poulpy#9355** to get it ! ^^"
+        else:
+            text3r="Don't forget to join [Kanna's support server](https://discord.gg/PTT9UpZ) for more info about me & updates."
+        try:
+            e = discord.Embed(description=f'Hey {guild.owner.name}, I just wanted to thank you for adding me here on your guild ! {text3r} Type `k!help for more information about me & my commands.`', title='Thanks !', color=0xdb90f4, timestamp=datetime.utcnow())
+            e.set_thumbnail(url='https://cdn.discordapp.com/attachments/476653267036930049/526213935821750292/a_51ad880d9a98f74a1d0f4a089a87bfa4.gif')
+            await guild.owner.send(embed=e)
+        except Exception as e:
+            print(e.args)
+
 
     async def on_guild_remove(self, guild):
         join = self.bot.get_channel(462875598184775700)
