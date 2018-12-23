@@ -27,9 +27,9 @@ class Listeners:
     async def on_guild_join(self, guild):
         join = self.bot.get_channel(462875598184775700)
         a = f"""Owned by **{guild.owner}**
-        Member count : `{guild.member_count}`
-        Created at `{guild.created_at}`
-        Guild Nr. `{len(self.bot.guilds)}`"""
+Member count : `{guild.member_count}`
+Created at `{guild.created_at}`
+Guild Nr. `{len(self.bot.guilds)}`"""
         e = discord.Embed(description=guild.name, title='Server Joined', color=1565439, timestamp=datetime.utcnow())
         e.set_thumbnail(url=guild.icon_url)
         e.add_field(name='Info', value=a)
@@ -39,9 +39,10 @@ class Listeners:
         else:
             text3r="Don't forget to join [Kanna's support server](https://discord.gg/PTT9UpZ) for more info about me & updates."
         try:
-            e = discord.Embed(description=f'Hey {guild.owner.name}, I just wanted to thank you for adding me here on your guild ! {text3r} Type `k!help for more information about me & my commands.`', title='Thanks !', color=0xdb90f4, timestamp=datetime.utcnow())
+            e = discord.Embed(description=f'Hey {guild.owner.name}, I just wanted to thank you for adding me here on your guild ! {text3r} Type `k!help` for more information about me & my commands.', title='Thanks !', color=0xdb90f4)
             e.set_thumbnail(url='https://cdn.discordapp.com/attachments/476653267036930049/526213935821750292/a_51ad880d9a98f74a1d0f4a089a87bfa4.gif')
-            await guild.owner.send(embed=e)
+            e.set_footer('You receive this because I was added on {guild.name}.')
+	    await guild.owner.send(embed=e)
         except Exception as e:
             print(e.args)
 
@@ -49,9 +50,9 @@ class Listeners:
     async def on_guild_remove(self, guild):
         join = self.bot.get_channel(462875598184775700)
         a = f"""Owned by **{guild.owner}**
-        Member count : `{guild.member_count}`
-        Created at `{guild.created_at}`
-        Guild Nr. `{len(self.bot.guilds)}`"""
+Member count : `{guild.member_count}`
+Created at `{guild.created_at}`
+Guild Nr. `{len(self.bot.guilds)}`"""
         e = discord.Embed(description=guild.name, title='Server Left', color=16744448, timestamp=datetime.utcnow())
         e.set_thumbnail(url=guild.icon_url)
         e.add_field(name='Info', value=a)
