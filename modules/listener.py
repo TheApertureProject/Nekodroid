@@ -41,7 +41,6 @@ Guild Nr. `{len(self.bot.guilds)}`"""
         try:
             e = discord.Embed(description=f'Hey {guild.owner.name}, I just wanted to thank you for adding me here on your guild ! {text3r} Type `k!help` for more information about me & my commands.', title='Thanks !', color=0xdb90f4)
             e.set_thumbnail(url='https://cdn.discordapp.com/attachments/476653267036930049/526213935821750292/a_51ad880d9a98f74a1d0f4a089a87bfa4.gif')
-            e.set_footer('You receive this because I was added on {guild.name}.')
             await guild.owner.send(embed=e)
         except Exception as e:
             print(e.args)
