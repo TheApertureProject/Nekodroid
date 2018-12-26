@@ -76,7 +76,7 @@ Guild Nr. `{len(self.bot.guilds)}`"""
         elif isinstance(error, commands.DisabledCommand):
             await ctx.send('⚠ This command is not usable right know due to a bug.')
         else:
-            embed = discord.Embed(color=discord.Color.red(), description='⚠ An unknown error occured! The error will be fixed as soon as possible.')
+            embed = discord.Embed(color=discord.Color.red(), description='⚠ An unknown error occured! The error will be fixed as soon as possible. Please join our **[support server](https://discord.gg/PTT9UpZ) if you think you can give us details about the error c:')
             errorembed = discord.Embed(color=discord.Color.red(), title=f'Error caused by {ctx.author} ({ctx.author.id})', description=f'```py\n{error}\n```')
             errorembed.add_field(name='Server', value=f'**{ctx.guild.name}** ({ctx.guild.id})', inline=True)
             errorembed.add_field(name='Command', value=f'**{ctx.command.name}**')
