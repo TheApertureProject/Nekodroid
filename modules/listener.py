@@ -15,14 +15,14 @@ class Listeners:
     def __init__(self, bot):
         self.bot = bot
 
-    async def on_message(self, message):     
-        if self.bot.user.mentioned_in(message):   
-            await message.channel.send(f'My prefix here is `{PREFIX}`.')
+#    async def on_message(self, message):     
+#        if self.bot.user.mentioned_in(message):   
+#            await message.channel.send(f'My prefix here is `{PREFIX}`.')
    
     async def on_member_join(self, member):
-	    if member.guild.id == 462871882916560896:
-		    role = discord.utils.get(member.guild.roles, name='Members')
-		    await member.add_roles(role)
+        if member.guild.id == 462871882916560896:
+            role = discord.utils.get(member.guild.roles, name='Members')
+            await member.add_roles(role)
 
     async def on_guild_join(self, guild):
         join = self.bot.get_channel(462875598184775700)
@@ -40,7 +40,8 @@ Guild Nr. `{len(self.bot.guilds)}`"""
             await guild.owner.send(embed=e)
         except Exception as e:
             print(e.args)
-
+        servchan=self.bot.get_channel(527180509542088704)
+        await servchan.edit(name=f'{len(self.bot.guilds)} servers')
 
     async def on_guild_remove(self, guild):
         join = self.bot.get_channel(462875598184775700)
@@ -52,6 +53,8 @@ Guild Nr. `{len(self.bot.guilds)}`"""
         e.set_thumbnail(url=guild.icon_url)
         e.add_field(name='Info', value=a)
         await join.send(embed=e)
+        servchan=self.bot.get_channel(527180509542088704)
+        await servchan.edit(name=f'{len(self.bot.guilds)} servers')
 
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.BadArgument):
