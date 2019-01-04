@@ -27,7 +27,7 @@ class Utilities:
     async def translate(self, ctx, *, term):
         translated = translator.translate(term)
         term2 = translated.text
-        e = discord.Embed(title='Translation', description=term, color=0x0099ff)
+        e = discord.Embed(title='Translation', description=term2, color=0x0099ff)
         e.set_thumbnail(url='https://media.discordapp.net/attachments/476653267036930049/524259270234079232/Google_Translate_logo.svg.png?width=301&height=301')
         await ctx.send(embed=e)
         
