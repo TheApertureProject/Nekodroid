@@ -9,7 +9,7 @@ class Partnership:
 
     whitelisted = ['278547804660695040', '520312070256984087', '458586186328571913']
 
-    def is_communitymanager():
+    def is_communitymanager(ctx):
         if ctx.author.id in whitelisted:
             return True
         else:
