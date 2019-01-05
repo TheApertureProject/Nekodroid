@@ -23,7 +23,7 @@ class Listeners:
         if member.guild.id == 462871882916560896:
             role = discord.utils.get(member.guild.roles, name='Members')
             await member.add_roles(role)
-            e=discord.Embed(description="Thanks for joining my support server !", title=f'Welcome, {member.name} !', color=0xdb90f4)
+            e=discord.Embed(description="Thanks for joining my support server ! Please check <#531240029704552468> before starting to chat with other members. Hope you'll enjoy your stay here !", title=f'Welcome, {member.name} !', color=0xdb90f4)
             e.set_thumbnail(url='https://cdn.discordapp.com/attachments/476653267036930049/528247247574401025/WindowKamuis.gif')
             e.set_image(url='https://cdn.discordapp.com/attachments/476653267036930049/528247286598467614/train-girl.jpg')
             await member.send(embed=e)
