@@ -67,12 +67,14 @@ Guild Nr. `{len(self.bot.guilds)}`"""
             await ctx.message.add_reaction('❓')
             await asyncio.sleep(15)
             await ctx.message.remove_reaction(emoji='❓', member=ctx.guild.me)
+	elif isinstance(error, commands.CheckFailure):
+	    await ctx.send('⚠ Your\'not allowed to use this command.')
         elif isinstance(error, commands.NotOwner):
-            await ctx.send('⚠ You\'re not the bot owner!')
+            await ctx.send('⚠ You\'re not the bot owner.')
         elif isinstance(error, commands.MissingRequiredArgument):
             await ctx.send('⚠ A required argument is missing.')
         elif isinstance(error, commands.MissingPermissions):
-            await ctx.send('⚠ You\'re not allowed to use this command!')
+            await ctx.send('⚠ You\'re not allowed to use this command.')
         elif isinstance(error, commands.BotMissingPermissions):
             await ctx.send('⚠ I can\'t execute this command.')
         elif isinstance(error, commands.NoPrivateMessage):
