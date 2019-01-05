@@ -16,7 +16,7 @@ class Partnership:
             return False
 
     
-    @commands.Check(is_communitymanager)
+    @commands.check(is_communitymanager)
     @commands.command
     async def extpartnership(self, chan: discord.Channel):
         a = """***__The Aperture Project__***
