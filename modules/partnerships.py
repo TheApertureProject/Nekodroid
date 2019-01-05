@@ -36,7 +36,9 @@ Rejoignez dès maintenant Aperture, le tout nouveau serveur dédié aux anime, a
 
 🎉 Des **giveaways** !
 
-🤖 Un bot dédié au serveur, accessible à tous :3"""
+🤖 Un bot dédié au serveur, accessible à tous :3
+
+Rejoignez-nous maintenant en [**cliquant ici**](https://discord.gg/JEUUM8c) !"""
         e = discord.Embed(name='Join server', description=a, color=0x1a53ff, url='https://discord.gg/JEUUM8c')
         e.set_image(url='https://cdn.discordapp.com/attachments/466600971213209602/473418748959653888/20180730_111606.gif')
         e.set_thumbnail(url='https://cdn.discordapp.com/attachments/489041727697584148/503466180481384448/1528224039633.png')
