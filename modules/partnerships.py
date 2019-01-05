@@ -17,7 +17,7 @@ class Partnership:
     
     @commands.check(is_communitymanager)
     @commands.command()
-    async def extpartnership(self, chan: discord.TextChannel):
+    async def extpartnership(self, ctx, chan: discord.TextChannel):
         a = """***__The Aperture Project__***
 
 Rejoignez dès maintenant Aperture, le tout nouveau serveur dédié aux anime, au kawaii et à la photographie !
