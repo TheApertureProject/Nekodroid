@@ -8,7 +8,7 @@ class Partnership:
         self.config = bot.config
 
     def is_communitymanager(ctx):
-        whitelisted = [278547804660695040, 520312070256984087, 458586186328571913]
+        whitelisted = [520312070256984087, 458586186328571913]
         if ctx.author.id in whitelisted:
             return True
         else:
