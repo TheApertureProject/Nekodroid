@@ -48,12 +48,6 @@ async def on_ready():
         except Exception:
             logging.exception('Failed to load %s', module)
     print('Logged in.')
-    print('Username : ' + bot.user.name)
-    print('ID : ' + str(bot.user.id))
-    print('Discord.py version : ' + str(discord.__version__))
-    print(f"Kanna version : {VERSION}")
-    print(f'Command prefix : {PREFIX}')
-    print('Press CTRL+C to exit...')
     bot.loop.create_task(status())
 
 bot.run(TOKEN)
