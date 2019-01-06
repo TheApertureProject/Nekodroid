@@ -14,6 +14,17 @@ class Listeners:
 	
     def __init__(self, bot):
         self.bot = bot
+        self.GUILD_ID = 462871882916560896
+        self.TARGET_CH_ID = 531240029704552468
+        self.MSG_ID = 531544298228023311
+    
+    async def on_reaction_add(react, user):
+        if any((react.message.guild.id != self.GUILD_ID, react.message.channel.id != self.TARGET_CH_ID, react.message.id != self.MSG_ID)):
+            return
+        else:
+            role = discord.utils.get(member.guild.roles, name='Members')
+            await member.add_roles(role)
+            await member.send('Access Granted ! Welcome to my lovely server !')
 
 #    async def on_message(self, message):     
 #        if self.bot.user.mentioned_in(message):   
@@ -21,8 +32,6 @@ class Listeners:
    
     async def on_member_join(self, member):
         if member.guild.id == 462871882916560896:
-            role = discord.utils.get(member.guild.roles, name='Members')
-            await member.add_roles(role)
             e=discord.Embed(description="Thanks for joining my support server ! Please check <#531240029704552468> before starting to chat with other members. Hope you'll enjoy your stay here !", title=f'Welcome, {member.name} !', color=0xdb90f4)
             e.set_thumbnail(url='https://cdn.discordapp.com/attachments/476653267036930049/528247247574401025/WindowKamuis.gif')
             e.set_image(url='https://cdn.discordapp.com/attachments/476653267036930049/528247286598467614/train-girl.jpg')
