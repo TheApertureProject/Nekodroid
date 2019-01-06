@@ -18,8 +18,10 @@ class Listeners:
         self.TARGET_CH_ID = 531240029704552468
         self.MSG_ID = 531544298228023311
     
-    async def on_reaction_add(self, react, member):
-        if any((react.message.guild.id != self.GUILD_ID, react.message.channel.id != self.TARGET_CH_ID, react.message.id != self.MSG_ID)):
+    async def on_reaction_add(self, react, user):
+        if any((
+            react.emoji != "\N{WHITE HEAVY CHECK MARK}" 
+            not react.message.guild, react.message.guild.id != self.GUILD_ID, react.message.channel.id != self.TARGET_CH_ID, react.message.id != self.MSG_ID)):
             return
         role = discord.utils.get(member.guild.roles, name='Members')
         await member.add_roles(role)
