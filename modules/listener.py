@@ -19,7 +19,7 @@ class Listeners:
         self.MSG_ID = 531544298228023311
     
     async def on_raw_reaction_add(self, message_id, channel_id, user_id):
-        if any((channel_id != self.TARGET_CH_ID, message_id != self.MSG_ID)):
+        if any((emoji != "\N{WHITE HEAVY CHECK MARK}", channel_id != self.TARGET_CH_ID, message_id != self.MSG_ID)):
             return
         await self.bot.get_user(user_id)
         role = discord.utils.get(member.guild.roles, name='Members')
