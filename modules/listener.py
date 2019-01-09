@@ -21,7 +21,7 @@ class Listeners:
     async def on_raw_reaction_add(self, emoji, message_id, channel_id, user_id):
         if any((emoji != "\N{WHITE HEAVY CHECK MARK}", channel_id != self.TARGET_CH_ID, message_id != self.MSG_ID)):
             return
-        await self.bot.get_user(user_id)
+        member = self.bot.get_user(user_id)
         role = discord.utils.get(member.guild.roles, name='Members')
         await member.add_roles(role)
         await member.send('Access Granted ! Welcome to my lovely server !')
