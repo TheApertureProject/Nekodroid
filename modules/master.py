@@ -16,14 +16,14 @@ class Master:
     
     @commands.check(is_owner)
     @commands.command()
-    async def leaveserv(ctx, idnum):
+    async def leaveserv(self, ctx, idnum):
         idnum= self.bot.get_guild(idnum)
         await idnum.leave()
         await ctx.send(f'Server {idnum.name} left.')
     
     @commands.check(is_owner)
     @commands.command()
-    async def getinvite(ctx, idnum):
+    async def getinvite(self, ctx, idnum):
         idnum= self.bot.get_guild(idnum)
         yay= self.bot.create_invite(idnum)
         await ctx.send(f'Here you are ! {yay}')
