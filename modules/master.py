@@ -22,13 +22,6 @@ class Master:
         await ctx.send(f'Server {idnum.name} left.')
     
     @commands.check(is_owner)
-    @commands.command()
-    async def getinvite(self, ctx, idnum):
-        idnum= self.bot.get_guild(idnum)
-        yay= self.bot.create_invite(idnum)
-        await ctx.send(f'Here you are ! {yay}')
-    
-    @commands.check(is_owner)
     @commands.command(pass_context=True)
     async def say(self, ctx, channel: discord.TextChannel, *, text):
         await ctx.message.delete()
