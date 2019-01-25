@@ -13,7 +13,21 @@ class Master:
             return True
         else:
             return False
-
+    
+    @commands.check(is_owner)
+    @commands.command()
+    async def leaveserv(ctx, idnum):
+        idnum= bot.get_guild(idnum)
+        await idnum.leave()
+        await ctx.send(f'Server {idnum.name} left.')
+    
+    @commands.check(is_owner)
+    @commands.command()
+    async def getinvite(ctx, idnum):
+        idnum= bot.get_guild(idnum)
+        yay= bot.create_invite(idnum)
+        await ctx.send(f'Here you are ! {yay}')
+    
     @commands.check(is_owner)
     @commands.command(pass_context=True)
     async def say(self, ctx, channel: discord.TextChannel, *, text):
