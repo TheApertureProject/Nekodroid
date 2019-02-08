@@ -17,14 +17,14 @@ class Listeners:
         self.GUILD_ID = 462871882916560896
         self.TARGET_CH_ID = 531240029704552468
         self.MSG_ID = 531544298228023311
-    
-    async def on_raw_reaction_add(self, emoji, message_id, channel_id, user_id):
-        if any((emoji != "\N{WHITE HEAVY CHECK MARK}", channel_id != self.TARGET_CH_ID, message_id != self.MSG_ID)):
-            return
-        member = self.bot.get_user(user_id)
-        role = discord.utils.get(member.guild.roles, name='Members')
-        await member.add_roles(role)
-        await member.send('Access Granted ! Welcome to my lovely server !')
+
+#    async def on_raw_reaction_add(self, emoji, message_id, channel_id, user_id):
+#        if any((emoji != "\N{WHITE HEAVY CHECK MARK}", channel_id != self.TARGET_CH_ID, message_id != self.MSG_ID)):
+#            return
+#        member = self.bot.get_user(user_id)
+#        role = discord.utils.get(member.guild.roles, name='Members')
+#        await member.add_roles(role)
+#        await member.send('Access Granted ! Welcome to my lovely server !')
 
 #    async def on_message(self, message):     
 #        if self.bot.user.mentioned_in(message):   
@@ -36,6 +36,8 @@ class Listeners:
             e.set_thumbnail(url='https://cdn.discordapp.com/attachments/476653267036930049/528247247574401025/WindowKamuis.gif')
             e.set_image(url='https://cdn.discordapp.com/attachments/476653267036930049/528247286598467614/train-girl.jpg')
             await member.send(embed=e)
+            role = discord.utils.get(member.guild.roles, name='Members')
+            await member.add_roles(role)
 
     async def on_guild_join(self, guild):
         join = self.bot.get_channel(462875598184775700)
