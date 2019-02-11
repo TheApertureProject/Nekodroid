@@ -6,7 +6,9 @@ import random
 import json
 
 with open('./fun.json', 'r') as cjson:
-config = json.load(cjson)
+pictures = json.load(cjson)
+
+HUGSG = pictures["hug"]
 
 class Fun:
 
@@ -27,9 +29,9 @@ class Fun:
     
     @commands.command()
     async def roll(self, ctx, usr: discord.User):
-        gifurl=random[]
-        e = discord.Embed(description=f"{ctx.message.author} gently hugged {usr.mention} ~", color=0x36393E)
-        e.set_image(url=f"https://media.discordapp.net/attachments/{}")
+        gifurl=random.choice(HUGSG)
+        e = discord.Embed(description=f"test", color=0x36393E)
+        e.set_image(url=f"https://media.discordapp.net/attachments/{gifurl}")
 
 def setup(bot):
     bot.add_cog(Fun(bot))
