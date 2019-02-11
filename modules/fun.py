@@ -6,7 +6,7 @@ import random
 import json
 
 with open('./fun.json', 'r') as cjson:
-pictures = json.load(cjson)
+    pictures = json.load(cjson)
 
 HUGSG = pictures["hug"]
 
@@ -29,7 +29,7 @@ class Fun:
     
     @commands.command()
     async def hug(self, ctx, usr: discord.User):
-        gifurl=random.choice(HUGSG)
+        gifurl = random.choice(HUGSG)
         e = discord.Embed(description=f"test", color=0x36393E)
         e.set_image(url=f"https://media.discordapp.net/attachments/{gifurl}")
 
