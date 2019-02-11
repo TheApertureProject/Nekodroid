@@ -28,7 +28,7 @@ class Fun:
             await ctx.send('Please send a valid number of messages !')
     
     @commands.command()
-    async def roll(self, ctx, usr: discord.User):
+    async def hug(self, ctx, usr: discord.User):
         gifurl=random.choice(HUGSG)
         e = discord.Embed(description=f"test", color=0x36393E)
         e.set_image(url=f"https://media.discordapp.net/attachments/{gifurl}")
