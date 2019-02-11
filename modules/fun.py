@@ -9,6 +9,7 @@ with open('./fun.json', 'r') as cjson:
     pictures = json.load(cjson)
 
 HUGSG = pictures["hug"]
+PATSG = pictures["pat"]
 
 class Fun:
 
@@ -30,7 +31,14 @@ class Fun:
     @commands.command()
     async def hug(self, ctx, usr: discord.User):
         gifurl = random.choice(HUGSG)
-        e = discord.Embed(description=f"test", color=0x36393E)
+        e = discord.Embed(description=f"{ctx.author.name} gently hugged {usr.name} ~", color=0x36393E)
+        e.set_image(url=f"https://media.discordapp.net/attachments/{gifurl}")
+        await ctx.send(embed=e)
+
+    @commands.command()
+    async def pat(self, ctx, usr: discord.User):
+        gifurl = random.choice(PATSG)
+        e = discord.Embed(description=f"{ctx.author.name} gently patted {usr.name}'s head.", color=0x36393E)
         e.set_image(url=f"https://media.discordapp.net/attachments/{gifurl}")
         await ctx.send(embed=e)
 
