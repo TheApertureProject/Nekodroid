@@ -32,6 +32,7 @@ class Fun:
         gifurl = random.choice(HUGSG)
         e = discord.Embed(description=f"test", color=0x36393E)
         e.set_image(url=f"https://media.discordapp.net/attachments/{gifurl}")
+        await ctx.send(embed=e)
 
 def setup(bot):
     bot.add_cog(Fun(bot))
