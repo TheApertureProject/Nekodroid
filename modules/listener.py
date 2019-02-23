@@ -4,7 +4,7 @@ import asyncio
 import discord
 import json
 from datetime import datetime
-from discord.exts.commands import Cog
+from discord.ext.commands import Cog
 
 with open('./config.json', 'r') as cjson:
     config = json.load(cjson)
