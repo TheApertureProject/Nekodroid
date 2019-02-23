@@ -12,7 +12,7 @@ prefiximg = ':prefiximg:505768310227599371'
 
 bot = commands.Bot(command_prefix=PREFIX)
 
-class Help:
+class Help(commands.Cog):
     
     def __init__(self, bot):
         self.bot = bot
