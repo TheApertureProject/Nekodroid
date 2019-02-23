@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import sys
 
-class Master:
+class Master(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
