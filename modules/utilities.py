@@ -5,7 +5,7 @@ import googletrans
 from googletrans import Translator
 translator = Translator()
 
-class Utilities:
+class Utilities(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
