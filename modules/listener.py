@@ -4,6 +4,7 @@ import asyncio
 import discord
 import json
 from datetime import datetime
+from discord.exts.commands import Cog
 
 with open('./config.json', 'r') as cjson:
     config = json.load(cjson)
@@ -31,7 +32,7 @@ class Listeners(commands.Cog):
 #        if self.bot.user.mentioned_in(message):   
 #            await message.channel.send(f'My prefix here is `{PREFIX}`.')
     
-    @commands.Cog.listener
+    @Cog.listener
     async def on_member_join(self, member):
         if member.guild.id == 462871882916560896:
             e=discord.Embed(description="Thanks for joining my support server ! Please check <#531240029704552468> before starting to chat with other members. Hope you'll enjoy your stay here !", title=f'Welcome, {member.name} !', color=0xdb90f4)
@@ -41,7 +42,7 @@ class Listeners(commands.Cog):
             role = discord.utils.get(member.guild.roles, name='Members')
             await member.add_roles(role)
     
-    @commands.Cog.listener
+    @Cog.listener
     async def on_guild_join(self, guild):
         join = self.bot.get_channel(462875598184775700)
         a = f"""Owned by **{guild.owner}**
@@ -61,7 +62,7 @@ Guild Nr. `{len(self.bot.guilds)}`"""
         servchan=self.bot.get_channel(527180509542088704)
         await servchan.edit(name=f'{len(self.bot.guilds)} servers')
     
-    @commands.Cog.listener
+    @Cog.listener
     async def on_guild_remove(self, guild):
         join = self.bot.get_channel(462875598184775700)
         a = f"""Owned by **{guild.owner}**
@@ -75,7 +76,7 @@ Guild Nr. `{len(self.bot.guilds)}`"""
         servchan=self.bot.get_channel(527180509542088704)
         await servchan.edit(name=f'{len(self.bot.guilds)} servers')
     
-    @commands.Cog.listener
+    @Cog.listener
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.BadArgument):
             await ctx.send(f'⚠ Check your input and try again.')
