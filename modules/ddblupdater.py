@@ -3,7 +3,7 @@ import aiohttp
   
 token = 'xxx'
 
-class Update: 
+class Update(commands.Cog): 
   
     def __init__(self, bot):
         self.bot = bot 
