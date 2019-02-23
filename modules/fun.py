@@ -11,7 +11,7 @@ with open('./fun.json', 'r') as cjson:
 HUGSG = pictures["hug"]
 PATSG = pictures["pat"]
 
-class Fun:
+class Fun(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
