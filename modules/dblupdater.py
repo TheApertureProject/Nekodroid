@@ -8,7 +8,7 @@ import os
 
 DBLTOKEN = os.environ["DBLTOKEN"]
 
-class DiscordBotsOrgAPI:
+class DiscordBotsOrgAPI(commands.Cog):
     
     def __init__(self, bot):
         self.bot = bot
