@@ -11,7 +11,7 @@ with open('./config.json', 'r') as cjson:
 
 PREFIX = config["prefix"]
 
-class Listeners(commands.Cog):
+class Listeners(Cog):
 	
     def __init__(self, bot):
         self.bot = bot
