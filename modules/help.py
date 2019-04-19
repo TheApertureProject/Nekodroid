@@ -28,11 +28,9 @@ class Help(commands.Cog):
     async def info(self, ctx):
         a = """Created by Poulpy#9355
 [Discord Bot List page](https://discordbots.org/bot/467332623677521940) - Upvote Kanna and support us !
-Hosted on [Heroku](https://www.heroku.com/)
-Running on [discord.py v1.0.0a](https://discordpy.readthedocs.io/en/latest/api.html)
+🆕 [Sho! Music Network](https://discord.gg/bzzjyFt)
 [Invite link](https://discordapp.com/oauth2/authorize?client_id=467332623677521940&scope=bot&permissions=2146958591)
-[Official Server](https://discord.gg/PTT9UpZ)
-Website hosted by [PunchHost](https://punchhost.com/)"""
+[Official Server](https://discord.gg/PTT9UpZ)"""
         b = "Important changes were made to Kanna recently including a brand new file architecture and management. Just check the [GitHub Repository](https://github.com/TheApertureProject/KannaNightly) to know more about these changes !"
         e = discord.Embed(description="Kanna Kamui, the Kawaii Discord bot !", title='More about me', color=0xF4A2FF)
         e.set_thumbnail(url="https://media.discordapp.net/attachments/489041727697584148/505805443453419541/1540620568476.png?width=376&height=376")
@@ -65,6 +63,7 @@ Website hosted by [PunchHost](https://punchhost.com/)"""
         e.add_field(name='`moderator`', value='Moderation related commands')
         e.add_field(name='`fun`', value='Fun related commands ~^^')
         e.set_footer(text='Type k!help <category> to display specific commands.')
+        e.add_field(name='🆕 Sho! Music Network', value='Quality electro [here](https://discord.gg/bzzjyFt) uwu')
         if ctx.author.id == 458586186328571913 :
             e.add_field(name='`master`', value="My master's commands !")
         await ctx.send(embed=e)
