@@ -39,10 +39,13 @@ class Utilities(commands.Cog):
 
     @commands.command(aliases=['googl', 'bitly'])
     async def shorten(self, ctx, rqurl):
-        bitly_login = bitly_api.Connection(BITLY_API_USER, BITLY_API_KEY) 
-        response = bitly_login.shorten(uri = rqurl)
-        result = response['url']
-        await ctx.send(f'***Shortened bit.ly link*** 🔀 {result}')
+        try:
+            bitly_login = bitly_api.Connection(BITLY_API_USER, BITLY_API_KEY) 
+            response = bitly_login.shorten(uri = rqurl)
+            result = response['url']
+            await ctx.send(f'***Shortened bit.ly link*** 🔀 <{result}>')
+        except:
+            await ctx.send('An error occured, nya. Please check the entered URL fro spaces or invalid caracters, nya !')
         
     @commands.command(aliases=['emoji', 'loot'])
     async def emote(self, ctx, *, emote: discord.Emoji):
