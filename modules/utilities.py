@@ -33,7 +33,7 @@ class Utilities(commands.Cog):
         e.set_thumbnail(url='https://media.discordapp.net/attachments/476653267036930049/524259270234079232/Google_Translate_logo.svg.png?width=301&height=301')
         await ctx.send(embed=e)
 
-    @commands.command(aliases='googl')
+    @commands.command(aliases=['googl'])
     async def shorten(self, ctx, rqurl):
         PAYLOAD = {'longUrl': rqurl}
         HEADERS = {'content-type': 'application/json'}
