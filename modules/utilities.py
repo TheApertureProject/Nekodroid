@@ -3,9 +3,12 @@ from discord.ext import commands
 import datetime
 import requests
 import json
+import os
 import googletrans
 from googletrans import Translator
 translator = Translator()
+
+GOOGLE_API_KEY=os.environ["GOOGLEAPITOKEN"]
 
 class Utilities(commands.Cog):
 
@@ -37,7 +40,7 @@ class Utilities(commands.Cog):
     async def shorten(self, ctx, rqurl):
         PAYLOAD = {'longUrl': rqurl}
         HEADERS = {'content-type': 'application/json'}
-        RQ = requests.post('https://www.googleapis.com/urlshortener/v1/url', data=json.dumps(PAYLOAD), headers=HEADERS)
+        RQ = requests.post(f'https://www.googleapis.com/urlshortener/v1/url?key={GOOGLE_API_KEY}', data=json.dumps(PAYLOAD), headers=HEADERS)
         await ctx.send(f'***Shortened goo.gl link*** 🔀 {RQ.text}')
         
     @commands.command(aliases=['emoji', 'loot'])
