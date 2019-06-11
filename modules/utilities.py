@@ -1,14 +1,15 @@
 import discord
 from discord.ext import commands
 import datetime
-import requests
+import bitly_api
 import json
 import os
 import googletrans
 from googletrans import Translator
 translator = Translator()
 
-GOOGLE_API_KEY=os.environ["GOOGLEAPITOKEN"]
+BITLY_API_USER = os.environ["BITLYUSERNAME"]
+BITLY_API_KEY = os.environ["BITLYTOKEN"]
 
 class Utilities(commands.Cog):
 
@@ -36,12 +37,11 @@ class Utilities(commands.Cog):
         e.set_thumbnail(url='https://media.discordapp.net/attachments/476653267036930049/524259270234079232/Google_Translate_logo.svg.png?width=301&height=301')
         await ctx.send(embed=e)
 
-    @commands.command(aliases=['googl'])
+    @commands.command(aliases=['googl', 'bitly'])
     async def shorten(self, ctx, rqurl):
-        PAYLOAD = {'longUrl': rqurl}
-        HEADERS = {'content-type': 'application/json'}
-        RQ = requests.post(f'https://www.googleapis.com/urlshortener/v1/url?key={GOOGLE_API_KEY}', data=json.dumps(PAYLOAD), headers=HEADERS)
-        await ctx.send(f'***Shortened goo.gl link*** 🔀 {RQ.text}')
+        bitly_login = bitly_api.Connection(BITLY_API_USER, BITLY_API_KEY) 
+        response = bitly_login.shorten(uri = rqurl) 
+        await ctx.send(f'***Shortened bit.ly link*** 🔀 {response}')
         
     @commands.command(aliases=['emoji', 'loot'])
     async def emote(self, ctx, *, emote: discord.Emoji):
