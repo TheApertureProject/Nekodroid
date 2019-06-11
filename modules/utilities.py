@@ -40,8 +40,9 @@ class Utilities(commands.Cog):
     @commands.command(aliases=['googl', 'bitly'])
     async def shorten(self, ctx, rqurl):
         bitly_login = bitly_api.Connection(BITLY_API_USER, BITLY_API_KEY) 
-        response = bitly_login.shorten(uri = rqurl) 
-        await ctx.send(f'***Shortened bit.ly link*** 🔀 {response}')
+        response = bitly_login.shorten(uri = rqurl)
+        result = response['url']
+        await ctx.send(f'***Shortened bit.ly link*** 🔀 {result}')
         
     @commands.command(aliases=['emoji', 'loot'])
     async def emote(self, ctx, *, emote: discord.Emoji):
