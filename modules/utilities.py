@@ -7,13 +7,6 @@ import googletrans
 from googletrans import Translator
 translator = Translator()
 
-import requests
-import json
-
-PAYLOAD = {'longUrl': url}
-HEADERS = {'content-type': 'application/json'}
-RQ = requests.post('https://www.googleapis.com/urlshortener/v1/url', data=json.dumps(PAYLOAD), headers=HEADERS)
-
 class Utilities(commands.Cog):
 
     def __init__(self, bot):
