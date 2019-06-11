@@ -1,9 +1,18 @@
 import discord
 from discord.ext import commands
 import datetime
+import requests
+import json
 import googletrans
 from googletrans import Translator
 translator = Translator()
+
+import requests
+import json
+
+PAYLOAD = {'longUrl': url}
+HEADERS = {'content-type': 'application/json'}
+RQ = requests.post('https://www.googleapis.com/urlshortener/v1/url', data=json.dumps(PAYLOAD), headers=HEADERS)
 
 class Utilities(commands.Cog):
 
@@ -30,6 +39,13 @@ class Utilities(commands.Cog):
         e = discord.Embed(title='Translation', description=term2, color=0x0099ff)
         e.set_thumbnail(url='https://media.discordapp.net/attachments/476653267036930049/524259270234079232/Google_Translate_logo.svg.png?width=301&height=301')
         await ctx.send(embed=e)
+
+    @commands.command(aliases='googl')
+    async def shorten(self, ctx, rqurl):
+        PAYLOAD = {'longUrl': rqurl}
+        HEADERS = {'content-type': 'application/json'}
+        RQ = requests.post('https://www.googleapis.com/urlshortener/v1/url', data=json.dumps(PAYLOAD), headers=HEADERS)
+        await ctx.send(f'***Shortened goo.gl link*** 🔀 {RQ.text}')
         
     @commands.command(aliases=['emoji', 'loot'])
     async def emote(self, ctx, *, emote: discord.Emoji):
