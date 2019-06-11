@@ -27,12 +27,12 @@ class Help(commands.Cog):
     @commands.command()
     async def info(self, ctx):
         a = """Created by Poulpy#9355
-[Discord Bot List page](https://discordbots.org/bot/467332623677521940) - Upvote Blank-chan and support us !
+[Discord Bot List page](https://discordbots.org/bot/467332623677521940) - Upvote Nekodroïd and support us !
 🆕 [Sho! Music Network](https://discord.gg/bzzjyFt)
 [Invite link](https://discordapp.com/oauth2/authorize?client_id=467332623677521940&scope=bot&permissions=2146958591)
 [Official Server](https://discord.gg/PTT9UpZ)"""
-        e = discord.Embed(description="Blank-chan. A Kawaii Discord bot !", title='More about me', color=0xF4A2FF)
-        e.set_thumbnail(url="https://media.discordapp.net/attachments/489041727697584148/505805443453419541/1540620568476.png?width=376&height=376")
+        e = discord.Embed(description="Nekodroïd. A Kawaii Discord bot, nya !", title='More about me', color=0xF4A2FF)
+        e.set_thumbnail(url="https://images.discordapp.net/avatars/467332623677521940/fddc0fea6101618cd58828d03eac4310.png?size=512")
         e.add_field(name='Information', value=a)
         e.set_footer(text=VERSION)
         e.set_author(name=self.bot.user.name, icon_url=self.bot.user.avatar_url)
