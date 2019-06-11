@@ -45,7 +45,7 @@ class Utilities(commands.Cog):
             result = response['url']
             await ctx.send(f'***Shortened bit.ly link*** 🔀 <{result}>')
         except:
-            await ctx.send('An error occured, nya. Please check the entered URL fro spaces or invalid caracters, nya !')
+            await ctx.send('An error occured, nya. Please check the entered URL for spaces or invalid caracters, nya !')
         
     @commands.command(aliases=['emoji', 'loot'])
     async def emote(self, ctx, *, emote: discord.Emoji):
