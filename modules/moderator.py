@@ -35,7 +35,7 @@ class Moderator(commands.Cog):
         try:
             deleted = await ctx.channel.purge(limit=amount)
             await ctx.send(f"✅ | `{len(deleted)}` messages successfully deleted !", delete_after = 5)
-        except HTTPException:
+        except discord.HTTPException:
             await ctx.send("❎ | I'm sorry, nya ! I can not clear messages older than two weeks.")
 
 def setup(bot):
