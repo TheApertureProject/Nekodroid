@@ -53,12 +53,12 @@ class Moderator(commands.Cog):
     @commands.guild_only()
     @commands.has_permissions(manage_roles=True)
     @commands.command()
-    async def mute(self, ctx, usr:discord.Member, REASON):
+    async def mute(self, ctx, usr:discord.Member, REASON = "none"):
         muted = discord.utils.get(ctx.guild.roles, name='Muted')
         if muted is not None:
             role = discord.utils.get(ctx.guild.roles, name="Muted")
             await usr.add_roles(role)
-            if REASON == None:
+            if REASON == "none":
                 await ctx.send(f'✅ | Member `{usr}` successfully muted, nya !')
             else:
                 await ctx.send(f'✅ | Member `{usr}` successfully muted for the following reason :```{REASON}``` Nya !')
