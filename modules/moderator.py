@@ -65,5 +65,13 @@ class Moderator(commands.Cog):
         else:
             await ctx.send('❎ | The `Muted` role doesn\'t exist. Please create it first, or let me do that for you by typing `nya!setmute`.')
 
+    @commands.guild_only()
+    @commands.has_permissions(manage_roles=True)
+    @commands.command()
+    async def unmute(self, ctx, usr:discord.Member):
+        mrole = discord.utils.get(ctx.guild.roles, name="Muted")
+        await usr.remove_roles(mrole)
+        await ctx.send(f'✅ | Member `{usr}` successfully unmuted, nya.')
+
 def setup(bot):
     bot.add_cog(Moderator(bot))
