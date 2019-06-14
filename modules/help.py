@@ -102,6 +102,9 @@ class Help(commands.Cog):
         a.add_field(name=f'<{prefiximg}>`kick <member/id>`', value='Kick someone from the server')
         a.add_field(name=f'<{prefiximg}>`ban <member/id> <reason>`', value='Kick a member from the server permanently (ban)')
         a.add_field(name=f'<{prefiximg}>`clear <amount of messages>`', value='Delete a specific number of messages (no limit - be extremely careful)')
+        a.add_field(name=f'<{prefiximg}>`mute <member/id> <reason>`', value='Mute a member')
+        a.add_field(name=f'<{prefiximg}>`unmute <member/id> <reason>`', value='Unmute a member')
+        a.add_field(name=f'<{prefiximg}>`setmute`', value='Create and set a `Muted` role on your server')
         await ctx.send(embed=a)
 
     @help.command(name="fun")
