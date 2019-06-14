@@ -8,7 +8,7 @@ with open('./config.json', 'r') as cjson:
 
 VERSION = config["version"]
 PREFIX = config["prefix"]
-prefiximg = ':prefiximg:505768310227599371'
+prefiximg = ':prefiximg:589180796796141568'
 
 bot = commands.Bot(command_prefix=PREFIX)
 
@@ -60,7 +60,7 @@ class Help(commands.Cog):
         e.add_field(name='`utilities`', value='All our amazing utilities !')
         e.add_field(name='`moderator`', value='Moderation related commands')
         e.add_field(name='`fun`', value='Fun related commands ~^^')
-        e.set_footer(text='Type k!help <category> to display specific commands.')
+        e.set_footer(text=f'Type {PREFIX}help <category> to display specific commands.')
         e.add_field(name='🆕 Sho! Music Network', value='Quality electro [here](https://discord.gg/bzzjyFt) uwu')
         if ctx.author.id == 458586186328571913 :
             e.add_field(name='`master`', value="My master's commands !")
@@ -79,7 +79,7 @@ class Help(commands.Cog):
     async def help_all(self, ctx):
         c = discord.Embed(description='All the commands', title='➡️Commands list', color=0x003366)
         c.set_thumbnail(url="https://cdn.discordapp.com/emojis/471044511804686348.gif?v=1")
-        c.add_field(name="`help`, `info`, `ping`, `kick <member/id>`,`ban <member/id> <reason>`, `clear <amount of messages>`, `clear <amount of messages>`, `pp <user>`, `roll <number>`", value='Full commands list')
+        c.add_field(name="`help`, `info`, `ping`, `kick <member/id>`,`ban <member/id> <reason>`, `clear <amount of messages>`, `clear <amount of messages>`, `pp <user>`, `qr <link>`, `shorten <link>`, `roll <number>`", value='Full commands list')
         c.add_field(name="`info`, `utilities`, `moderator`, `fun`", value='Help categories')
         await ctx.send(embed=c)
 
@@ -90,9 +90,9 @@ class Help(commands.Cog):
         c.add_field(name=f'<{prefiximg}>`translate <text>`', value='Translate a text string from any language to english')
         c.add_field(name=f'<{prefiximg}>`pp <user>`', value='Get the profile picture of some user')
         c.add_field(name=f'<{prefiximg}>`qr <url>`', value='Shorten a url adress (or a simple text string) into a QR Code')
+        c.add_field(name=f'<{prefiximg}>`shorten <url>`', value='Shorten a URL adress into a bit.ly link')
         c.add_field(name=f'<{prefiximg}>`emote <emoji>`', value='Get the download link of some emoji')
         c.add_field(name=f'<{prefiximg}>`wiki <request>`', value='Search WikiPedia')
-        c.add_field(name=f'<{prefiximg}>`shorten <url>`', value='Shorten an URL using bit.ly')
         await ctx.send(embed=c)
 
     @help.command(name="moderator")
