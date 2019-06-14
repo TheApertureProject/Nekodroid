@@ -59,9 +59,9 @@ class Moderator(commands.Cog):
             role = discord.utils.get(ctx.guild.roles, name="Muted")
             await usr.add_roles(role)
             if not REASON:
-                await ctx.send(f'✅ | Member `{usr}` successfully muted, nya !')
+                await ctx.send(f'✅ | Member `{usr}` was successfully muted, nya !')
             else:
-                await ctx.send(f'✅ | Member `{usr}` successfully muted for the following reason :```{REASON}``` Nya !')
+                await ctx.send(f'✅ | Member `{usr}` was successfully muted for the following reason :```{REASON}``` Nya !')
         else:
             await ctx.send('❎ | The `Muted` role doesn\'t exist. Please create it first, or let me do that for you by typing `nya!setmute`.')
 
@@ -71,7 +71,7 @@ class Moderator(commands.Cog):
     async def unmute(self, ctx, usr:discord.Member):
         mrole = discord.utils.get(ctx.guild.roles, name="Muted")
         await usr.remove_roles(mrole)
-        await ctx.send(f'✅ | Member `{usr}` successfully unmuted, nya.')
+        await ctx.send(f'✅ | Member `{usr}` was successfully unmuted, nya.')
 
 def setup(bot):
     bot.add_cog(Moderator(bot))
