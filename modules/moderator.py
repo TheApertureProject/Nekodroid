@@ -42,7 +42,7 @@ class Moderator(commands.Cog):
     @commands.guild_only()
     @commands.has_permissions(manage_roles=True)
     @commands.command()
-    async def setmute(self, ctx, member=discord.Member, reason):
+    async def setmute(self, ctx):
         muted = discord.utils.get(ctx.guild.roles, name='Muted')
         if muted is not None:
             await ctx.send('❎ | The `Muted` role was created already, nya.')
