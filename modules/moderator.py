@@ -44,7 +44,7 @@ class Moderator(commands.Cog):
     @commands.has_permissions(manage_roles=True)
     @commands.command()
     async def setmute(self, ctx):
-        muted = discord.utils.get(ctx.guild.roles, name='Muted'.casefold())
+        muted = discord.utils.get(ctx.guild.roles, name='Muted')
         if muted is not None:
             await ctx.send(f'{redcross} | The `Muted` role was created already, nya.')
         else:
@@ -71,7 +71,7 @@ class Moderator(commands.Cog):
     @commands.has_permissions(manage_roles=True)
     @commands.command()
     async def unmute(self, ctx, usr:discord.Member):
-        mrole = discord.utils.get(ctx.guild.roles, name="Muted".casefold())
+        mrole = discord.utils.get(ctx.guild.roles, name="Muted")
         await usr.remove_roles(mrole)
         await ctx.send(f'✅ | Member `{usr}` was successfully unmuted, nya.')
 
