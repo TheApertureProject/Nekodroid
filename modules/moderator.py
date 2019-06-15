@@ -56,7 +56,7 @@ class Moderator(commands.Cog):
     @commands.has_permissions(manage_roles=True)
     @commands.command()
     async def mute(self, ctx, usr:discord.Member, REASON = None):
-        muted = discord.utils.get(ctx.guild.roles, name='Muted'.casefold())
+        muted = discord.utils.get(ctx.guild.roles, name='Muted')
         if muted is not None:
             role = discord.utils.get(ctx.guild.roles, name="Muted")
             await usr.add_roles(role)
