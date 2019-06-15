@@ -65,7 +65,7 @@ class Moderator(commands.Cog):
             else:
                 await ctx.send(f'✅ | Member `{usr}` was successfully muted for the following reason :```{REASON}``` Nya !')
         else:
-            await ctx.send('❎ | The `Muted` role doesn\'t exist. Please create it first, or let me do that for you by typing `nya!setmute`.')
+            await ctx.send(f'{redcross} | The `Muted` role doesn\'t exist. Please create it first, or let me do that for you by typing `nya!setmute`.')
 
     @commands.guild_only()
     @commands.has_permissions(manage_roles=True)
