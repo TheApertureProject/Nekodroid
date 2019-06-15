@@ -10,6 +10,7 @@ with open('./config.json', 'r') as cjson:
     config = json.load(cjson)
 
 PREFIX = config["prefix"]
+redcross = ':white_cross_mark:589227645753884672'
 
 class Listeners(Cog):
 	
@@ -79,25 +80,25 @@ Guild Nr. `{len(self.bot.guilds)}`"""
     @Cog.listener()
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.BadArgument):
-            await ctx.send(f'⚠ Check your input and try again.')
+            await ctx.send(f'{redcross} | Check your input and try again.')
         elif isinstance(error, commands.CommandNotFound):
             await ctx.message.add_reaction('❓')
             await asyncio.sleep(15)
             await ctx.message.remove_reaction(emoji='❓', member=ctx.guild.me)
         elif isinstance(error, commands.CheckFailure):
-            await ctx.send('⚠ Your\'not allowed to use this command.')
+            await ctx.send(f'{redcross} | Your\'not allowed to use this command.')
         elif isinstance(error, commands.NotOwner):
-            await ctx.send('⚠ You\'re not the bot owner.')
+            await ctx.send(f'{redcross} | You\'re not the bot owner.')
         elif isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send('⚠ A required argument is missing.')
+            await ctx.send(f'{redcross} | A required argument is missing.')
         elif isinstance(error, commands.MissingPermissions):
-            await ctx.send('⚠ You\'re not allowed to use this command.')
+            await ctx.send(f'{redcross} | You\'re not allowed to use this command.')
         elif isinstance(error, commands.BotMissingPermissions):
-            await ctx.send('⚠ I can\'t execute this command.')
+            await ctx.send(f'{redcross} | I can\'t execute this command.')
         elif isinstance(error, commands.NoPrivateMessage):
-            await ctx.send('⚠ You can\'t use this command in DM\'s.')
+            await ctx.send(f'{redcross} | You can\'t use this command in DM\'s.')
         elif isinstance(error, commands.DisabledCommand):
-            await ctx.send('⚠ This command is not usable right know due to a bug.')
+            await ctx.send(f'{redcross} | This command is not usable right know due to a bug.')
         else:
             embedbasic = discord.Embed(color=discord.Color.red(), description='⚠ An unknown error occured! The error will be fixed as soon as possible. Please join our **[support server](https://discord.gg/PTT9UpZ)** if you think you can give us details about the error c:')
             errorembed = discord.Embed(color=discord.Color.red(), title=f'Error caused by {ctx.author} ({ctx.author.id})', description=f'```py\n{error}\n```')
