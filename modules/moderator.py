@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 
+redcross = ':white_cross_mark:589227645753884672'
+
 class Moderator(commands.Cog):
     
     conf = {}
@@ -36,7 +38,7 @@ class Moderator(commands.Cog):
             deleted = await ctx.channel.purge(limit=amount)
             await ctx.send(f"✅ | `{len(deleted)}` messages successfully deleted !", delete_after = 5)
         except discord.HTTPException:
-            await ctx.send(f"❎ | I'm sorry, but I can't delete messages older than two weeks. Nya !")
+            await ctx.send(f"{redcross} | I'm sorry, but I can't delete messages older than two weeks. Nya !")
 
     @commands.guild_only()
     @commands.has_permissions(manage_roles=True)
@@ -44,7 +46,7 @@ class Moderator(commands.Cog):
     async def setmute(self, ctx):
         muted = discord.utils.get(ctx.guild.roles, name='Muted'.casefold())
         if muted is not None:
-            await ctx.send('❎ | The `Muted` role was created already, nya.')
+            await ctx.send(f'{redcross} | The `Muted` role was created already, nya.')
         else:
             guild = ctx.guild
             await guild.create_role(name="Muted")
