@@ -10,7 +10,7 @@ with open('./config.json', 'r') as cjson:
     config = json.load(cjson)
 
 PREFIX = config["prefix"]
-redcross = ':white_cross_mark:589227645753884672'
+redcross = '<:white_cross_mark:589227645753884672>'
 
 class Listeners(Cog):
 	
