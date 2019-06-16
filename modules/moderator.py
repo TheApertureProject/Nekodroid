@@ -64,6 +64,10 @@ class Moderator(commands.Cog):
                 await ctx.send(f'✅ | Member `{usr}` was successfully muted, nya !')
             else:
                 await ctx.send(f'✅ | Member `{usr}` was successfully muted for the following reason :```{REASON}``` Nya !')
+            try:
+                await member.send(f'Hi, {usr}. You were muted on {ctx.guild.name} by {ctx.author.name} for the following reason :```{REASON}```')
+            except:
+                pass
         else:
             await ctx.send(f'{redcross} | The `Muted` role doesn\'t exist. Please create it first, or let me do that for you by typing `nya!setmute`.')
 
@@ -74,6 +78,17 @@ class Moderator(commands.Cog):
         mrole = discord.utils.get(ctx.guild.roles, name="Muted")
         await usr.remove_roles(mrole)
         await ctx.send(f'✅ | Member `{usr}` was successfully unmuted, nya.')
+        try:
+            await member.send(f'Hi, {usr}. You were unmuted by {ctx.author.name} on {ctx.guild.name}, nya !')
+        except:
+            pass
 
+    @commands.guild_only()
+    @commands.has_permissions(kick_members)
+    @commands.command()
+    async def warn(self, ctx, usr:discord.Member):
+        
+    
+        
 def setup(bot):
     bot.add_cog(Moderator(bot))
