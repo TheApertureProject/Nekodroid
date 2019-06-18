@@ -84,7 +84,7 @@ class Moderator(commands.Cog):
             pass
 
     @commands.guild_only()
-    @commands.has_permissions(kick_members)
+    @commands.has_permissions(kick_members=True)
     @commands.command()
     async def warn(self, ctx, usr:discord.Member, reason):
         await ctx.send(f'✅ | Member `{usr}` has been warned, nya. Reason : ```{reason}```')
