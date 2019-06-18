@@ -65,7 +65,7 @@ class Moderator(commands.Cog):
             else:
                 await ctx.send(f'✅ | Member `{usr}` was successfully muted for the following reason :```{REASON}``` Nya !')
             try:
-                await member.send(f'Hi, {usr}. You were muted on {ctx.guild.name} by {ctx.author.name} for the following reason :```{REASON}```')
+                await member.send(f'Hi, {usr}. You were muted on **{ctx.guild.name}** by {ctx.author.name} for the following reason :```{REASON}```')
             except:
                 pass
         else:
@@ -79,16 +79,19 @@ class Moderator(commands.Cog):
         await usr.remove_roles(mrole)
         await ctx.send(f'✅ | Member `{usr}` was successfully unmuted, nya.')
         try:
-            await member.send(f'Hi, {usr}. You were unmuted by {ctx.author.name} on {ctx.guild.name}, nya !')
+            await member.send(f'Hi, {usr}. You were unmuted by {ctx.author.name} on **{ctx.guild.name}**, nya !')
         except:
             pass
 
     @commands.guild_only()
     @commands.has_permissions(kick_members)
     @commands.command()
-    async def warn(self, ctx, usr:discord.Member):
-        
-    
-        
+    async def warn(self, ctx, usr:discord.Member, reason):
+        await ctx.send(f'✅ | Member `{usr}` has been warned, nya. Reason : ```{reason}```')
+        try:
+            await member.send(f'Hi, {usr}. You were warned on guild **{ctx.guild.name}** for the following : ```{reason}```')
+        except:
+            pass
+
 def setup(bot):
     bot.add_cog(Moderator(bot))
