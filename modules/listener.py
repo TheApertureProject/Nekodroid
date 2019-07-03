@@ -40,8 +40,8 @@ class Listeners(Cog):
             e.set_thumbnail(url='https://cdn.discordapp.com/attachments/476653267036930049/528247247574401025/WindowKamuis.gif')
             e.set_image(url='https://cdn.discordapp.com/attachments/476653267036930049/528247286598467614/train-girl.jpg')
             await member.send(embed=e)
-            role = discord.utils.get(member.guild.roles, name='Members')
-            await member.add_roles(role)
+ #           role = discord.utils.get(member.guild.roles, name='Members')
+ #           await member.add_roles(role)
     
     @Cog.listener()
     async def on_guild_join(self, guild):
