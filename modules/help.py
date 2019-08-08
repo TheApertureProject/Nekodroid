@@ -114,6 +114,7 @@ class Help(commands.Cog):
         d.add_field(name='`roll <number>`', value="Roll a dice with the specified number of faces (no limit !)")
         d.add_field(name='`pat <user>`', value="Pat some user ~")
         d.add_field(name='`hug <user>`', value="Hug some user.")
+        d.add_field(name='`facts`', value="Returns a random fact."
         await ctx.send(embed=d)
 
     @commands.check(is_owner)
