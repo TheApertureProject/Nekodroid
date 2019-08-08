@@ -43,7 +43,7 @@ class Fun(commands.Cog):
         e.set_image(url=f"https://media.discordapp.net/attachments/{gifurl}")
         await ctx.send(embed=e)
 
-    @commands.command()
+    @commands.command(alisases=['fact'])
     async def facts(self, ctx):
         some_fact = nekos.fact()
         e = discord.Embed(title = "Facts", description=some_fact, color=0x36393E)
@@ -53,9 +53,16 @@ class Fun(commands.Cog):
 
     @commands.command()
     async def why(self, ctx):
-        some_fact = nekos.why()
-        e = discord.Embed(title = "Still wondering", description=some_fact, color=0x36393E)
+        some_question = nekos.why()
+        e = discord.Embed(title = "Still wondering", description=some_question, color=0x36393E)
         e.set_thumbnail(url="https://cdn.discordapp.com/attachments/560801259968266240/609142219147837461/1565301178948.png")
+        await ctx.send(embed=e)
+        
+    @commands.command(aliases=['cats'])
+    async def cat(self, ctx):
+        some_cat = nekos.cat()
+        e = discord.Embed(title = "Meow~", color=0x36393E)
+        e.set_image(url=some_cat)
         await ctx.send(embed=e)
 
 def setup(bot):
