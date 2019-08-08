@@ -108,6 +108,7 @@ class Help(commands.Cog):
         d.add_field(name='`hug <user>`', value="Hug some user.")
         d.add_field(name='`facts`', value="Returns a random fact.")
         d.add_field(name='`why`', value="Returns a question.")
+        d.add_field(name='`cats`', value="Returns a kitty pic ~")
         await ctx.send(embed=d)
 
     @commands.check(is_owner)
