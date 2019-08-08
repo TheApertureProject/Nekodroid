@@ -47,7 +47,7 @@ class Fun(commands.Cog):
     async def facts(self, ctx):
         some_fact = nekos.fact()
         e = discord.Embed(title = "Facts", description=some_fact, color=0x0000EE)
-        e.set_thumnail(url="https://cdn.discordapp.com/attachments/560801259968266240/609132350051188749/1565298690301.png")
+        e.set_thumbnail(url="https://cdn.discordapp.com/attachments/560801259968266240/609132350051188749/1565298690301.png")
 
 def setup(bot):
     bot.add_cog(Fun(bot))
