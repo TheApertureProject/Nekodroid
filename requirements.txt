@@ -2,3 +2,4 @@ discord
 dblpy
 git+https://github.com/BoseCorp/py-googletrans.git
 git+https://github.com/bitly/bitly-api-python.git
+git+https://github.com/Nekos-life/nekos.py/archive/master.zip
