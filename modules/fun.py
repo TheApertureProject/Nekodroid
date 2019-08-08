@@ -4,6 +4,7 @@ from random import randint
 import asyncio
 import random
 import json
+import nekos
 
 with open('./fun.json', 'r') as cjson:
     pictures = json.load(cjson)
@@ -41,6 +42,12 @@ class Fun(commands.Cog):
         e = discord.Embed(description=f"{ctx.author.name} gently patted {usr.name}'s head.", color=0x36393E)
         e.set_image(url=f"https://media.discordapp.net/attachments/{gifurl}")
         await ctx.send(embed=e)
+
+    @commands.command()
+    async def facts(self, ctx):
+        some_fact = nekos.fact()
+        e = discord.Embed(title = "Facts", description=some_fact, color=0x0000EE)
+        e.add_thumnail(url="https://cdn.discordapp.com/attachments/560801259968266240/609132350051188749/1565298690301.png")
 
 def setup(bot):
     bot.add_cog(Fun(bot))
