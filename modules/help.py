@@ -75,14 +75,6 @@ class Help(commands.Cog):
         e.add_field(name=f'<{prefiximg}>`help`', value='Displays the primary help message')
         await ctx.send(embed=e)
 
-    @help.command(name='all')
-    async def help_all(self, ctx):
-        c = discord.Embed(description='All the commands', title='➡️Commands list', color=0x003366)
-        c.set_thumbnail(url="https://cdn.discordapp.com/emojis/471044511804686348.gif?v=1")
-        c.add_field(name="`help`, `info`, `ping`, `kick <member/id>`,`ban <member/id> <reason>`, `clear <amount of messages>`, `clear <amount of messages>`, `pp <user>`, `qr <link>`, `shorten <link>`, `roll <number>`", value='Full commands list')
-        c.add_field(name="`info`, `utilities`, `moderator`, `fun`", value='Help categories')
-        await ctx.send(embed=c)
-
     @help.command(name='utilities')
     async def help_utilities(self, ctx):
         c = discord.Embed(description='Utilities', title='➡️Commands list', color=0x003366)
@@ -114,7 +106,8 @@ class Help(commands.Cog):
         d.add_field(name='`roll <number>`', value="Roll a dice with the specified number of faces (no limit !)")
         d.add_field(name='`pat <user>`', value="Pat some user ~")
         d.add_field(name='`hug <user>`', value="Hug some user.")
-        d.add_field(name='`facts`', value="Returns a random fact."
+        d.add_field(name='`facts`', value="Returns a random fact.")
+        d.add_field(name='`why`', value="Returns a question.")
         await ctx.send(embed=d)
 
     @commands.check(is_owner)
@@ -128,6 +121,15 @@ class Help(commands.Cog):
             await ctx.send(embed=b)
         except:
             await ctx.send("Access denied ! Y~you're not my master !")
+
+
+    @help.command(name='all')
+    async def help_all(self, ctx):
+        c = discord.Embed(description='All the commands', color=0x003366)
+        c.set_thumbnail(url="https://cdn.discordapp.com/emojis/471044511804686348.gif?v=1")
+        c.add_field(name="`help`, `info`, `ping`, `kick <member/id>`,`ban <member/id> <reason>`, `clear <amount of messages>`, `clear <amount of messages>`, `pp <user>`, `qr <link>`, `shorten <link>`, `roll <number>`, `hug <user>`, `pat <user>`, `facts`, `why`", value='Full command list')
+        c.add_field(name="`info`, `utilities`, `moderator`, `fun`", value='Help categories')
+        await ctx.send(embed=c)
     
     @commands.command(aliases=['utilities', 'moderator', 'all', 'master'])
     async def fun(self, ctx):
