@@ -67,7 +67,7 @@ class Fun(commands.Cog):
     
     @Cog.listener()
     async def on_message("neko"):
-        await ctx.send(nekos.textcat())
+        await message.channel.send(nekos.textcat())
 
 def setup(bot):
     bot.add_cog(Fun(bot))
