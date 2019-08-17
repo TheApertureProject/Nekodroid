@@ -8,6 +8,8 @@ with open('./config.json', 'r') as cjson:
 
 VERSION = config["version"]
 PREFIX = config["prefix"]
+BOT_ID = config["client_id"]
+SERVER_INVITE = config["server_invite"]
 prefiximg = ':prefiximg:589180796796141568'
 
 bot = commands.Bot(command_prefix=PREFIX)
@@ -26,11 +28,11 @@ class Help(commands.Cog):
 
     @commands.command()
     async def info(self, ctx):
-        a = """Created by Poulpy#9355
+        a = f"""Created by Poulpy#9355
 [Discord Bot List page](https://discordbots.org/bot/467332623677521940) - Upvote Nekodroïd and support us !
 🆕 [Sho! Music Network](https://discord.gg/bzzjyFt)
-[Invite link](https://discordapp.com/oauth2/authorize?client_id=467332623677521940&scope=bot&permissions=2146958591)
-[Official Server](https://discord.gg/PTT9UpZ)"""
+[Invite link](https://discordapp.com/oauth2/authorize?client_id={BOT_ID}&scope=bot&permissions=2146958591)
+[Official Server]({SERVER_INVITE})"""
         e = discord.Embed(description="Nekodroïd. A Kawaii Discord bot, nya !", title='More about me', color=0xF4A2FF)
         e.set_thumbnail(url="https://images.discordapp.net/avatars/467332623677521940/fddc0fea6101618cd58828d03eac4310.png?size=512")
         e.add_field(name='Information', value=a)
