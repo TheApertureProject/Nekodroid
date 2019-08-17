@@ -3,7 +3,7 @@
     "owner_id" : "497691805123477505",
     "main_server_id" : "612342503089242182",
     "server_join_channel" : "612353294718730240",
-    "member_count_chan" : "612343524658118665,
+    "server_count_chan" : "612343524658118665,
     "server_invite" : "https://discord.gg/wxBGu5f",
     "version": ["1.0.0a"],
     "modules": ["general", "moderator", "utilities", "fun", "dblupdater", "help", "master", "listener", "partnerships"]
