@@ -64,6 +64,10 @@ class Fun(commands.Cog):
         e = discord.Embed(title = "Meow~", color=0x36393E)
         e.set_image(url=some_cat)
         await ctx.send(embed=e)
+    
+    @Cog.listener()
+    async def on_message("neko"):
+        await ctx.send(nekos.textcat())
 
 def setup(bot):
     bot.add_cog(Fun(bot))
