@@ -42,7 +42,7 @@ class Listeners(Cog):
         if member.guild.id == MAINSERVERID:
             e=discord.Embed(description="Thanks for joining my support server ! Please check <#531240029704552468> before starting to chat with other members. Hope you'll enjoy your stay here !", title=f'Welcome, {member.name} !', color=0xdb90f4)
             e.set_thumbnail(url='https://cdn.discordapp.com/attachments/476653267036930049/528247247574401025/WindowKamuis.gif')
-            e.set_image(url='https://cdn.discordapp.com/attachments/476653267036930049/528247286598467614/train-girl.jpg')
+            e.set_image(url='https://media.discordapp.net/attachments/612394933294202891/612403670713368606/unknown-31.png?width=400&height=226')
             await member.send(embed=e)
             role = discord.utils.get(member.guild.roles, name='Members')
             await member.add_roles(role)
@@ -65,7 +65,7 @@ Guild Nr. `{len(self.bot.guilds)}`
         e.add_field(name='Info', value=a)
         await join.send(embed=e)
         e = discord.Embed(description=f"Hey {guild.owner.name}, I just wanted to thank you for adding me here on your guild ! Feel free to join my [support server](https://discord.gg/PTT9UpZ). Type `k!help` for more information about me & my commands ~", title='Thanks !', color=0xdb90f4)
-        e.set_thumbnail(url='https://cdn.discordapp.com/attachments/476653267036930049/526223217749393417/458776090752843786.png')
+        e.set_thumbnail(url='https://media.discordapp.net/attachments/612394933294202891/612403535979610142/JPEG_20190817_220553.jpg?width=300&height=300')
         try:
             await guild.owner.send(embed=e)
         except Exception as e:
