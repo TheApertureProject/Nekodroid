@@ -10,6 +10,10 @@ with open('./config.json', 'r') as cjson:
     config = json.load(cjson)
 
 PREFIX = config["prefix"]
+MSERV_ID = config["main_server_id"]
+SJCHAN_ID = config["server_join_channel"]
+SCCHAN_ID = config["server_count_channel"]
+ERPCHAN_ID = config["error_reports_channel"]
 redcross = '<:white_cross_mark:589227645753884672>'
 
 class Listeners(Cog):
@@ -35,7 +39,7 @@ class Listeners(Cog):
     
     @Cog.listener()
     async def on_member_join(self, member):
-        if member.guild.id == 462871882916560896:
+        if member.guild.id == MAINSERVERID:
             e=discord.Embed(description="Thanks for joining my support server ! Please check <#531240029704552468> before starting to chat with other members. Hope you'll enjoy your stay here !", title=f'Welcome, {member.name} !', color=0xdb90f4)
             e.set_thumbnail(url='https://cdn.discordapp.com/attachments/476653267036930049/528247247574401025/WindowKamuis.gif')
             e.set_image(url='https://cdn.discordapp.com/attachments/476653267036930049/528247286598467614/train-girl.jpg')
@@ -45,8 +49,8 @@ class Listeners(Cog):
     
     @Cog.listener()
     async def on_guild_join(self, guild):
-        join = self.bot.get_channel(462875598184775700)
-        a = f"""Owned by **{guild.owner}**
+        join = self.bot.get_channel(SJCHAN_ID)
+        a = f"""Owned by **`{guild.owner}`**
 Member count : `{guild.member_count}`
 Created at `{guild.created_at}`
 Guild Nr. `{len(self.bot.guilds)}`"""
@@ -60,12 +64,12 @@ Guild Nr. `{len(self.bot.guilds)}`"""
             await guild.owner.send(embed=e)
         except Exception as e:
             print(e.args)
-        servchan=self.bot.get_channel(527180509542088704)
+        servchan=self.bot.get_channel(SCCHAN_ID)
         await servchan.edit(name=f'{len(self.bot.guilds)} servers')
     
     @Cog.listener()
     async def on_guild_remove(self, guild):
-        join = self.bot.get_channel(462875598184775700)
+        join = self.bot.get_channel(SJCHAN_ID)
         a = f"""Owned by **{guild.owner}**
 Member count : `{guild.member_count}`
 Created at `{guild.created_at}`
@@ -74,7 +78,7 @@ Guild Nr. `{len(self.bot.guilds)}`"""
         e.set_thumbnail(url=guild.icon_url)
         e.add_field(name='Info', value=a)
         await join.send(embed=e)
-        servchan=self.bot.get_channel(527180509542088704)
+        servchan=self.bot.get_channel(SCCHAN_ID)
         await servchan.edit(name=f'{len(self.bot.guilds)} servers')
     
     @Cog.listener()
@@ -101,10 +105,10 @@ Guild Nr. `{len(self.bot.guilds)}`"""
             await ctx.send(f'{redcross} | This command is not usable right know due to a bug.')
         else:
             embedbasic = discord.Embed(color=discord.Color.red(), description='⚠ An unknown error occured! The error will be fixed as soon as possible. Please join our **[support server](https://discord.gg/PTT9UpZ)** if you think you can give us details about the error c:')
-            errorembed = discord.Embed(color=discord.Color.red(), title=f'Error caused by {ctx.author} ({ctx.author.id})', description=f'```py\n{error}\n```')
-            errorembed.add_field(name='Server', value=f'**{ctx.guild.name}** ({ctx.guild.id})', inline=True)
+            errorembed = discord.Embed(color=discord.Color.red(), title=f'Error caused by `{ctx.author}` ({ctx.author.id})', description=f'```py\n{error}\n```')
+            errorembed.add_field(name='Server', value=f'**`{ctx.guild.name}`** ({ctx.guild.id})', inline=True)
             errorembed.add_field(name='Command', value=f'**{ctx.command.name}**')
-            channel = ctx.bot.get_channel(462876207097053195)
+            channel = ctx.bot.get_channel(ERPCHAN_ID)
             await ctx.send(embed=embedbasic)
             await channel.send(embed=errorembed)
 
