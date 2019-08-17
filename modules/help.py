@@ -36,6 +36,7 @@ class Help(commands.Cog):
         e = discord.Embed(description="Nekodroïd. A Kawaii Discord bot, nya !", title='More about me', color=0xF4A2FF)
         e.set_thumbnail(url="https://images.discordapp.net/avatars/467332623677521940/fddc0fea6101618cd58828d03eac4310.png?size=512")
         e.add_field(name='Information', value=a)
+        e.set_image(url="https://media.discordapp.net/attachments/612394933294202891/612400803595943949/IMG_20190817_224156.jpg?width=259&height=300")
         e.set_footer(text=VERSION)
         e.set_author(name=self.bot.user.name, icon_url=self.bot.user.avatar_url)
         await ctx.send(embed=e)
