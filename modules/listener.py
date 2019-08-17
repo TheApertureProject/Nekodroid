@@ -50,10 +50,16 @@ class Listeners(Cog):
     @Cog.listener()
     async def on_guild_join(self, guild):
         join = self.bot.get_channel(SJCHAN_ID)
+	    try:
+	        invite_url = await bot.get_channel(bot.get_guild(ID).system_channel).create_invite()
+            invite = f"[Join this server]({invite_url.url})"
+        except:
+            invite = "Couldn't generate any invite for this server."
         a = f"""Owned by **`{guild.owner}`**
 Member count : `{guild.member_count}`
 Created at `{guild.created_at}`
-Guild Nr. `{len(self.bot.guilds)}`"""
+Guild Nr. `{len(self.bot.guilds)}`
+{invite}"""
         e = discord.Embed(description=guild.name, title='Server Joined', color=1565439, timestamp=datetime.utcnow())
         e.set_thumbnail(url=guild.icon_url)
         e.add_field(name='Info', value=a)
@@ -108,6 +114,13 @@ Guild Nr. `{len(self.bot.guilds)}`"""
             errorembed = discord.Embed(color=discord.Color.red(), title=f'Error caused by `{ctx.author}` ({ctx.author.id})', description=f'```py\n{error}\n```')
             errorembed.add_field(name='Server', value=f'**`{ctx.guild.name}`** ({ctx.guild.id})', inline=True)
             errorembed.add_field(name='Command', value=f'**{ctx.command.name}**')
+            join = self.bot.get_channel(SJCHAN_ID)
+	        try:
+	            invite_url = await bot.get_channel(bot.get_guild(ID).system_channel).create_invite()
+                invite = f"[Join this server]({invite_url.url})"
+            except:
+                invite = "Couldn't generate any invite for this server."
+            errorembed.add_field(name='Join server', value=invite)
             channel = ctx.bot.get_channel(ERPCHAN_ID)
             await ctx.send(embed=embedbasic)
             await channel.send(embed=errorembed)
