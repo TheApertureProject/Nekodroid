@@ -65,7 +65,7 @@ class Fun(commands.Cog):
         e.set_image(url=some_cat)
         await ctx.send(embed=e)
     
-    @Cog.listener()
+    @commands.Cog.listener()
     async def on_message(self, message):
         if 'neko' in message.content:
             await message.channel.send(nekos.textcat())
