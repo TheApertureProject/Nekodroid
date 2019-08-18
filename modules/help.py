@@ -10,7 +10,7 @@ VERSION = config["version"]
 PREFIX = config["prefix"]
 BOT_ID = config["client_id"]
 SERVER_INVITE = config["server_invite"]
-prefiximg = ':prefiximg:589180796796141568'
+prefiximg = ':prefiximg:612474539120525312'
 
 bot = commands.Bot(command_prefix=PREFIX)
 
