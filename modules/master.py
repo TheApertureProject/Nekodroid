@@ -9,7 +9,7 @@ class Master(commands.Cog):
         self.config = bot.config
 
     def is_owner(ctx):
-        if ctx.author.id == 458586186328571913:
+        if ctx.author.id == 497691805123477505:
             return True
         else:
             return False
