@@ -66,8 +66,9 @@ class Fun(commands.Cog):
         await ctx.send(embed=e)
     
     @Cog.listener()
-    async def on_message(self, "neko"):
-        await message.channel.send(nekos.textcat())
+    async def on_message(self, message):
+        if 'neko' in message.content:
+            await message.channel.send(nekos.textcat())
 
 def setup(bot):
     bot.add_cog(Fun(bot))
