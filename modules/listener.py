@@ -50,8 +50,8 @@ class Listeners(Cog):
     @Cog.listener()
     async def on_guild_join(self, guild):
         join = self.bot.get_channel(SJCHAN_ID)
-	    try:
-	        invite_url = await bot.get_channel(bot.get_guild(ID).system_channel).create_invite()
+        try:
+            invite_url = await bot.get_channel(bot.get_guild(ID).system_channel).create_invite()
             invite = f"[Join this server]({invite_url.url})"
         except:
             invite = "Couldn't generate any invite for this server."
@@ -115,7 +115,7 @@ Guild Nr. `{len(self.bot.guilds)}`"""
             errorembed.add_field(name='Server', value=f'**`{ctx.guild.name}`** ({ctx.guild.id})', inline=True)
             errorembed.add_field(name='Command', value=f'**{ctx.command.name}**')
             join = self.bot.get_channel(SJCHAN_ID)
-	        try:
+            try:
 	            invite_url = await bot.get_channel(bot.get_guild(ID).system_channel).create_invite()
                 invite = f"[Join this server]({invite_url.url})"
             except:
