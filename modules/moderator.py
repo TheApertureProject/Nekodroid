@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 
-redcross = '<:white_cross_mark:589227645753884672>'
+redcross = '<:white_cross_mark:612474623333761031>'
 
 class Moderator(commands.Cog):
     
