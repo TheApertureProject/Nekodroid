@@ -64,7 +64,7 @@ Guild Nr. `{len(self.bot.guilds)}`
         e.set_thumbnail(url=guild.icon_url)
         e.add_field(name='Info', value=a)
         await join.send(embed=e)
-        e = discord.Embed(description=f"Hey {guild.owner.name}, I just wanted to thank you for adding me here on your guild ! Feel free to join my [support server](https://discord.gg/PTT9UpZ). Type `k!help` for more information about me & my commands ~", title='Thanks !', color=0xdb90f4)
+        e = discord.Embed(description=f"Hey {guild.owner.name}, I just wanted to thank you for adding me here on your guild ! Feel free to join my [support server](https://discord.gg/wxBGu5f). Type `k!help` for more information about me & my commands ~", title='Thanks !', color=0xdb90f4)
         e.set_thumbnail(url='https://media.discordapp.net/attachments/612394933294202891/612403535979610142/JPEG_20190817_220553.jpg?width=300&height=300')
         try:
             await guild.owner.send(embed=e)
