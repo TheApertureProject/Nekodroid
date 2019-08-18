@@ -65,9 +65,9 @@ class Fun(commands.Cog):
         e.set_image(url=some_cat)
         await ctx.send(embed=e)
     
-#    @Cog.listener()
-#    async def on_message("neko"):
-#        await message.channel.send(nekos.textcat())
+    @Cog.listener()
+    async def on_message(self, "neko"):
+        await message.channel.send(nekos.textcat())
 
 def setup(bot):
     bot.add_cog(Fun(bot))
