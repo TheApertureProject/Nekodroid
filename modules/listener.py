@@ -49,7 +49,7 @@ class Listeners(Cog):
     
     @Cog.listener()
     async def on_guild_join(self, guild):
-        join = self.bot.get_channel(SJCHAN_ID)
+        join = self.bot.get_channel(612353294718730240)
         try:
             invite_url = await bot.get_channel(bot.get_guild(ID).system_channel).create_invite()
             invite = f"[Join this server]({invite_url.url})"
@@ -70,12 +70,12 @@ Guild Nr. `{len(self.bot.guilds)}`
             await guild.owner.send(embed=e)
         except Exception as e:
             print(e.args)
-        servchan=self.bot.get_channel(SCCHAN_ID)
+        servchan=self.bot.get_channel(612343524658118665)
         await servchan.edit(name=f'{len(self.bot.guilds)} servers')
     
     @Cog.listener()
     async def on_guild_remove(self, guild):
-        join = self.bot.get_channel(SJCHAN_ID)
+        join = self.bot.get_channel(612353294718730240)
         a = f"""Owned by **{guild.owner}**
 Member count : `{guild.member_count}`
 Created at `{guild.created_at}`
@@ -84,7 +84,7 @@ Guild Nr. `{len(self.bot.guilds)}`"""
         e.set_thumbnail(url=guild.icon_url)
         e.add_field(name='Info', value=a)
         await join.send(embed=e)
-        servchan=self.bot.get_channel(SCCHAN_ID)
+        servchan=self.bot.get_channel(612343524658118665)
         await servchan.edit(name=f'{len(self.bot.guilds)} servers')
     
     @Cog.listener()
@@ -121,7 +121,7 @@ Guild Nr. `{len(self.bot.guilds)}`"""
             except:
                 invite = "Couldn't generate any invite for this server."
             errorembed.add_field(name='Join server', value=invite)
-            channel = ctx.bot.get_channel(ERPCHAN_ID)
+            channel = ctx.bot.get_channel(612358161826840708)
             await ctx.send(embed=embedbasic)
             await channel.send(embed=errorembed)
 
