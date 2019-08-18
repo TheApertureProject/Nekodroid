@@ -40,7 +40,7 @@ class Listeners(Cog):
     @Cog.listener()
     async def on_member_join(self, member):
         if member.guild.id == 612342503089242182:
-            e=discord.Embed(description="Thanks for joining my support server ! Please check <#531240029704552468> before starting to chat with other members. Hope you'll enjoy your stay here !", title=f'Welcome, {member.name} !', color=0xdb90f4)
+            e=discord.Embed(description="Thanks for joining my support server ! Please make sure you've read the <#612699815662452785> before chatting with other members. Hope you'll enjoy your stay here !", title=f'Welcome, {member.name} !', color=0xdb90f4)
             e.set_thumbnail(url='https://cdn.discordapp.com/attachments/476653267036930049/528247247574401025/WindowKamuis.gif')
             e.set_image(url='https://media.discordapp.net/attachments/612394933294202891/612403670713368606/unknown-31.png?width=400&height=226')
             await member.send(embed=e)
