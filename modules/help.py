@@ -87,7 +87,6 @@ class Help(commands.Cog):
         c.add_field(name=f'<{prefiximg}>`qr <url>`', value='Shorten a url adress (or a simple text string) into a QR Code')
         c.add_field(name=f'<{prefiximg}>`shorten <url>`', value='Shorten a URL adress into a bit.ly link')
         c.add_field(name=f'<{prefiximg}>`emote <emoji>`', value='Get the download link of some emoji')
-        c.add_field(name=f'<{prefiximg}>`wiki <request>`', value='Search WikiPedia')
         await ctx.send(embed=c)
 
     @help.command(name="moderator")
