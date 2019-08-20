@@ -105,12 +105,12 @@ class Help(commands.Cog):
     async def help_fun(self, ctx):
         d = discord.Embed(description='Fun', title='➡️Commands list', color=0xFFA2DD)
         d.set_thumbnail(url="https://cdn.discordapp.com/emojis/398860813881835533.png?v=1")
-        d.add_field(name='`roll <number>`', value="Roll a dice with the specified number of faces (no limit !)")
-        d.add_field(name='`pat <user>`', value="Pat some user ~")
-        d.add_field(name='`hug <user>`', value="Hug some user.")
-        d.add_field(name='`facts`', value="Returns a random fact.")
-        d.add_field(name='`why`', value="Returns a question.")
-        d.add_field(name='`cats`', value="Returns a kitty pic ~")
+        d.add_field(name=f'<{prefiximg}>`roll <number>`', value="Roll a dice with the specified number of faces (no limit !)")
+        d.add_field(name=f'<{prefiximg}>`pat <user>`', value="Pat some user ~")
+        d.add_field(name=f'<{prefiximg}>`hug <user>`', value="Hug some user.")
+        d.add_field(name=f'<{prefiximg}>`facts`', value="Returns a random fact.")
+        d.add_field(name=f'<{prefiximg}>`why`', value="Returns a question.")
+        d.add_field(name=f'<{prefiximg}>`cats`', value="Returns a kitty pic ~")
         await ctx.send(embed=d)
 
     @commands.check(is_owner)
