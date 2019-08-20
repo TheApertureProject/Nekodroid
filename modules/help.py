@@ -28,15 +28,15 @@ class Help(commands.Cog):
 
     @commands.command()
     async def info(self, ctx):
-        a = f"""Created by Poulpy#9355
-[Discord Bot List page](https://discordbots.org/bot/467332623677521940) - Upvote Nekodroïd and support us !
-🆕 [Sho! Music Network](https://discord.gg/bzzjyFt)
+        a = f"""Created by nekodroid#0001
+[Discord Bot List page](https://discordbots.org/bot/{BOT_ID}) - Upvote Nekodroïd and support us !
+🆕 [Sho! Music Network](https://www.youtube.com/channel/UCYuh-fE3VqvmdSmZYtioH4Q)
 [Invite link](https://discordapp.com/oauth2/authorize?client_id={BOT_ID}&scope=bot&permissions=2146958591)
 [Official Server]({SERVER_INVITE})"""
         e = discord.Embed(description="Nekodroïd. A Kawaii Discord bot, nya !", title='More about me', color=0xF4A2FF)
-        e.set_thumbnail(url="https://images.discordapp.net/avatars/467332623677521940/fddc0fea6101618cd58828d03eac4310.png?size=512")
+        e.set_thumbnail(url="https://images.discordapp.net/avatars/467332623677521940/fddc0fea6101618cd58828d03eac4310.png")
         e.add_field(name='Information', value=a)
-        e.set_image(url="https://media.discordapp.net/attachments/612394933294202891/612400803595943949/IMG_20190817_224156.jpg?width=259&height=300")
+        e.set_image(url="https://media.discordapp.net/attachments/612394933294202891/612400803595943949/IMG_20190817_224156.jpg")
         e.set_footer(text=VERSION)
         e.set_author(name=self.bot.user.name, icon_url=self.bot.user.avatar_url)
         await ctx.send(embed=e)
@@ -64,7 +64,7 @@ class Help(commands.Cog):
         e.add_field(name='`moderator`', value='Moderation related commands')
         e.add_field(name='`fun`', value='Fun related commands ~^^')
         e.set_footer(text=f'Type {PREFIX}help <category> to display specific commands.')
-        e.add_field(name='🆕 Sho! Music Network', value='Quality electro [here](https://discord.gg/bzzjyFt) uwu')
+        e.add_field(name='🆕 Sho! Music Network', value='Quality electro [here](https://www.youtube.com/channel/UCYuh-fE3VqvmdSmZYtioH4Q) uwu')
         if ctx.author.id == 458586186328571913 :
             e.add_field(name='`master`', value="My master's commands !")
         await ctx.send(embed=e)
