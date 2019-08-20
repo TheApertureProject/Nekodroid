@@ -68,7 +68,7 @@ class Fun(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         if 'neko' in message.content:
-            await message.channel.send(f'`{nekos.textcat()}`')
+            await message.channel.send(f'{nekos.textcat()}')
 
 def setup(bot):
     bot.add_cog(Fun(bot))
