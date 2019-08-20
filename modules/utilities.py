@@ -17,8 +17,8 @@ class Utilities(commands.Cog):
         self.bot = bot
         self.config = bot.config
 
-    @commands.command()
-    async def pp(self, ctx, usr: discord.User):
+    @commands.command(aliases=['pfp', 'pp'])
+    async def avatar(self, ctx, usr: discord.User):
         e = discord.Embed(description=f"[{usr.name}'s profile picture]({usr.avatar_url})", title='Avatar', color=0x5D5DFF)
         e.set_image(url=usr.avatar_url)
         await ctx.send(embed=e)
