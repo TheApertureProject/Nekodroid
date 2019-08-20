@@ -55,7 +55,7 @@ class Moderator(commands.Cog):
             await ctx.send(f'{redcross} | The `Muted` role was created already, nya.')
         else:
             guild = ctx.guild
-            await guild.create_role(name="Muted", permissions = discord.Permissions(send_messages = False, add_reactions = False, speak = False), colour=0x36393E)
+            await guild.create_role(name="Muted", permissions = discord.Permissions(send_messages = False, add_reactions = False, speak = False), colour=0x36393E))
             await ctx.send('✅ | The `Muted` role was succesfully created !')
 
     @commands.guild_only()
