@@ -28,7 +28,7 @@ bot.ready = False
 
 async def status():
     while True:
-        names = [f'\'{PREFIX}help\' !', 'on my supportserv, nya.', f'on {len(bot.guilds)} servers, nya !', f'with {len(bot.users)} users. Nya.']
+        names = [f'\'nya help\' !', 'on my supportserv, nya.', f'on {len(bot.guilds)} servers, nya !', f'with {len(bot.users)} users. Nya.']
         for name in names:
             await bot.change_presence(activity=discord.Game(name=name))
             await asyncio.sleep(7)
