@@ -41,10 +41,10 @@ Level : `{LEVEL}`
 Ranked games count : `{PLAYCOUNT}`"""
             
             ranking=f"""Total performance points : `{PPRAW}`
-Global ranking : `{PPRANK}`
-Country ranking : `{COUNTRYRANK}`"""
+Global ranking : #`{PPRANK}`
+Country ranking : #`{COUNTRYRANK}`"""
             
-            e = discord.Embed(title = f':flag_{country}: {USERNAME}**', description=f':ID: {USERID}', url = f'https://osu.ppy.sh/users/{USERID}', color = 0xFF69B4)
+            e = discord.Embed(title = f':flag_{country}: {USERNAME}', description=f':id: {USERID}', url = f'https://osu.ppy.sh/users/{USERID}', color = 0xFF69B4)
             e.set_author(name="osu! profile info", icon_url='https://media.discordapp.net/attachments/612394933294202891/613790628878221357/1566409482107.png')
             e.add_field(name='User information', value=userinfo)
             e.add_field(name='Ranking', value=ranking)
