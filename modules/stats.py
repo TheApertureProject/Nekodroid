@@ -30,7 +30,7 @@ class Stats(commands.Cog):
             PLAYCOUNT=user["playcount"]
             PPRAW=user["pp_raw"]
             PPRANK=user["pp_rank"]
-            CONTRYRANK=user["pp_country_rank"]
+            COUNTRYRANK=user["pp_country_rank"]
             LEVEL=user["level"]
             COUNTRY=user["country"]
             
