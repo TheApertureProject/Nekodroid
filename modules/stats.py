@@ -14,16 +14,20 @@ class Stats(commands.Cog):
     
     @commands.command()
     async def osu(self, ctx, player_id):
-        r = requests.get(url=f'https://osu.ppy.sh/api/get_user?k={osu_api_key}&u={player_id}')
-        data = (await r.json())[0]
-        USERNAME=data["user_name"]
-        USERID=data["user_id"]
-        JOINDATE=data["join_date"]
-        PLAYCOUNT=data["playcount"]
-        PPRAW=data["pp_raw"]
-        PPRANK=data["pp_rank"]
-        LEVEL=data["level"]
-        COUNTRY=data["country"]
+        async with aiohttp.ClientSession() as session:
+        async with session.get("https://osu.ppy.sh/api/get_user", params={"k": osu_api_key, "u": player_id}) as resp:
+        resp.raise_for_status()
+        payload = await resp.json()
+        if len(payload) == 0:
+            await bot.send('error')
+        USERNAME=payload["user_name"]
+        USERID=payload["user_id"]
+        JOINDATE=payload["join_date"]
+        PLAYCOUNT=payload["playcount"]
+        PPRAW=payload["pp_raw"]
+        PPRANK=payload["pp_rank"]
+        LEVEL=payload["level"]
+        COUNTRY=payload["country"]
         e = discord.Embed(title = f'osu! Profile for user {user_name}', description=f'Player ID : {user_id}', url = f'https://osu.ppy.sh/users/{user_id}', color = 0xFF69B4)
         await ctx.send(embed = e)
 
