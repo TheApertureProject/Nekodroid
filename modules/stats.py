@@ -21,7 +21,7 @@ class Stats(commands.Cog):
         if len(payload) == 0:
             await bot.send('error')
         user=payload[0]
-        USERNAME=user["user_name"]
+        USERNAME=user["username"]
         USERID=user["user_id"]
         JOINDATE=user["join_date"]
         PLAYCOUNT=user["playcount"]
