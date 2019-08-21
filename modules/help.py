@@ -63,6 +63,7 @@ class Help(commands.Cog):
         e.add_field(name='`utilities`', value='All our amazing utilities !')
         e.add_field(name='`moderator`', value='Moderation related commands')
         e.add_field(name='`fun`', value='Fun related commands ~^^')
+        e.add_field(name='`stats`', value='Game statistics related commands')
         e.set_footer(text=f'Type {PREFIX}help <category> to display specific commands.')
         e.add_field(name='🆕 Sho! Music Network', value='Quality electro [here](https://www.youtube.com/channel/UCYuh-fE3VqvmdSmZYtioH4Q) uwu')
         if ctx.author.id == 458586186328571913 :
@@ -111,6 +112,13 @@ class Help(commands.Cog):
         d.add_field(name=f'<{prefiximg}>`facts`', value="Returns a random fact.")
         d.add_field(name=f'<{prefiximg}>`why`', value="Returns a question.")
         d.add_field(name=f'<{prefiximg}>`cats`', value="Returns a kitty pic ~")
+        await ctx.send(embed=d)
+        
+    @help.command(name="stats")
+    async def help_stats(self, ctx):
+        d = discord.Embed(description='Stats', title='➡️Commands list', color=0xCC9600)
+        d.set_thumbnail(url="https://media.discordapp.net/attachments/612394933294202891/613803506482282511/ee03f76ed0711b770c0c797d83bd2ea0-gaming-controller-icon-by-vexels.png")
+        d.add_field(name=f'<{prefiximg}>`osu <username / ID>`', value="Returns specified player's osu! stats.")
         await ctx.send(embed=d)
 
     @commands.check(is_owner)
