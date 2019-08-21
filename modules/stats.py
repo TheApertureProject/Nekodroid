@@ -37,7 +37,7 @@ class Stats(commands.Cog):
             country = COUNTRY.lower()
             
             userinfo=f"""Joined {JOINDATE}
-Level : `{int(LEVEL)}`
+Level : `{LEVEL}`
 Ranked games count : `{PLAYCOUNT}`"""
             
             ranking=f"""Total performance points : `{PPRAW}`
