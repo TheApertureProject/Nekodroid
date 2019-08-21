@@ -5,6 +5,7 @@ import json
 import os
 
 osu_api_key = os.environ["OSUTOKEN"]
+redcross = '<:white_cross_mark:612474623333761031>'
 
 class Stats(commands.Cog):
 
@@ -19,7 +20,7 @@ class Stats(commands.Cog):
                 resp.raise_for_status()
                 payload = await resp.json()
         if len(payload) == 0:
-            await bot.send('error')
+            await ctx.send(f'{redcross} | Couldn\'t find any user matching this name / ID.')
         user=payload[0]
         USERNAME=user["username"]
         USERID=user["user_id"]
