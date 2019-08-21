@@ -14,7 +14,7 @@ class Stats(commands.Cog):
     
     @commands.command()
     async def osu(self, ctx, player_id):
-        r = requests.get(url=f'https://osu.ppy.sh/p/api/get_user?k={osu_api_key}&u={player_id}')
+        r = requests.get(url=f'https://osu.ppy.sh/api/get_user?k={osu_api_key}&u={player_id}')
         data = (await r.json())[0]
         USERNAME=data["user_name"]
         USERID=data["user_id"]
