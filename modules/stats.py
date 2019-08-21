@@ -29,7 +29,7 @@ class Stats(commands.Cog):
         PPRANK=user["pp_rank"]
         LEVEL=user["level"]
         COUNTRY=user["country"]
-        e = discord.Embed(title = f'osu! Profile for user {user_name}', description=f'Player ID : {user_id}', url = f'https://osu.ppy.sh/users/{user_id}', color = 0xFF69B4)
+        e = discord.Embed(title = f'osu! Profile for user {USERNAME}', description=f'Player ID : {USERID}', url = f'https://osu.ppy.sh/users/{USERID}', color = 0xFF69B4)
         await ctx.send(embed = e)
 
 def setup(bot):
