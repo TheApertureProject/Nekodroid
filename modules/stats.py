@@ -17,7 +17,7 @@ class Stats(commands.Cog):
         async with aiohttp.ClientSession() as session:
             async with session.get("https://osu.ppy.sh/api/get_user", params={"k": osu_api_key, "u": player_id}) as resp:
                 resp.raise_for_status()
-                payload = await resp.json()
+                payload = await resp.json([0])
         if len(payload) == 0:
             await bot.send('error')
         USERNAME=payload["user_name"]
