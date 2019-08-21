@@ -22,8 +22,8 @@ class Stats(commands.Cog):
         playcount=data["playcount"]
         pp_raw=data["pp_raw"]
         pp_rank=data["pp_rank"]
-        level=["level"]
-        country=["country"]
+        level=data["level"]
+        country=data["country"]
         e = discord.Embed(title = f'osu! Profile for user {user_name}', description=f'Player ID : {user_id}', url = f'https://osu.ppy.sh/users/{user_id}', color = 0xFF69B4)
         await ctx.send(embed = e)
 
