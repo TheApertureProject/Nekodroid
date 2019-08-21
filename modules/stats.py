@@ -21,17 +21,35 @@ class Stats(commands.Cog):
                 payload = await resp.json()
         if len(payload) == 0:
             await ctx.send(f'{redcross} | Couldn\'t find any user matching this name / ID.')
-        user=payload[0]
-        USERNAME=user["username"]
-        USERID=user["user_id"]
-        JOINDATE=user["join_date"]
-        PLAYCOUNT=user["playcount"]
-        PPRAW=user["pp_raw"]
-        PPRANK=user["pp_rank"]
-        LEVEL=user["level"]
-        COUNTRY=user["country"]
-        e = discord.Embed(title = f'osu! Profile for user {USERNAME}', description=f'Player ID : {USERID}', url = f'https://osu.ppy.sh/users/{USERID}', color = 0xFF69B4)
-        await ctx.send(embed = e)
+        else:
+            user=payload[0]
+            
+            USERNAME=user["username"]
+            USERID=user["user_id"]
+            JOINDATE=user["join_date"]
+            PLAYCOUNT=user["playcount"]
+            PPRAW=user["pp_raw"]
+            PPRANK=user["pp_rank"]
+            CONTRYRANK=user["pp_country_rank"]
+            LEVEL=user["level"]
+            COUNTRY=user["country"]
+            
+            country = COUNTRY.lower()
+            
+            userinfo=f"""Joined {JOINDATE}
+Level : `{int(LEVEL)}`
+Ranked games count : `{PLAYCOUNT}`"""
+            
+            ranking=f"""Total performance points : `{PPRAW}`
+Global ranking : `{PPRANK}`
+Country ranking : `{COUNTRYRANK}`"""
+            
+            e = discord.Embed(title = f':flag_{country}: {USERNAME}**', description=f':ID: {USERID}', url = f'https://osu.ppy.sh/users/{USERID}', color = 0xFF69B4)
+            e.set_author(name="osu! profile info", icon_url='https://media.discordapp.net/attachments/612394933294202891/613790628878221357/1566409482107.png')
+            e.add_field(name='User information', value=userinfo)
+            e.add_field(name='Ranking', value=ranking)
+            e.set_thumbnail(url=f'https://a.ppy.sh/{USERID}')
+            await ctx.send(embed = e)
 
 def setup(bot):
     bot.add_cog(Stats(bot))
