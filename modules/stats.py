@@ -16,14 +16,14 @@ class Stats(commands.Cog):
     async def osu(self, ctx, player_id):
         r = requests.get(url=f'https://osu.ppy.sh/p/api/get_user?k={osu_api_key}&u={player_id}')
         data = (await r.json())[0]
-        user_name=data["user_name"]
-        user_id=data["user_id"]
-        join_date=data["join_date"]
-        playcount=data["playcount"]
-        pp_raw=data["pp_raw"]
-        pp_rank=data["pp_rank"]
-        level=data["level"]
-        country=data["country"]
+        USERNAME=data["user_name"]
+        USERID=data["user_id"]
+        JOINDATE=data["join_date"]
+        PLAYCOUNT=data["playcount"]
+        PPRAW=data["pp_raw"]
+        PPRANK=data["pp_rank"]
+        LEVEL=data["level"]
+        COUNTRY=data["country"]
         e = discord.Embed(title = f'osu! Profile for user {user_name}', description=f'Player ID : {user_id}', url = f'https://osu.ppy.sh/users/{user_id}', color = 0xFF69B4)
         await ctx.send(embed = e)
 
