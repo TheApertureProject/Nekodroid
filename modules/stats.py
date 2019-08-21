@@ -24,6 +24,7 @@ class Stats(commands.Cog):
         level=["level"]
         country=["country"]
         e = discord.Embed(title = f'osu! Profile for user {user_name}', description=f'Player ID : {user_id}', url = f'https://osu.ppy.sh/users/{user_id}', color = 0xFF69B4)
+        await ctx.send(embed = e)
 
 def setup(bot):
     bot.add_cog(Stats(bot))
