@@ -20,14 +20,15 @@ class Stats(commands.Cog):
                 payload = await resp.json([0])
         if len(payload) == 0:
             await bot.send('error')
-        USERNAME=payload["user_name"]
-        USERID=payload["user_id"]
-        JOINDATE=payload["join_date"]
-        PLAYCOUNT=payload["playcount"]
-        PPRAW=payload["pp_raw"]
-        PPRANK=payload["pp_rank"]
-        LEVEL=payload["level"]
-        COUNTRY=payload["country"]
+        user=payload[0]
+        USERNAME=user["user_name"]
+        USERID=user["user_id"]
+        JOINDATE=user["join_date"]
+        PLAYCOUNT=user["playcount"]
+        PPRAW=user["pp_raw"]
+        PPRANK=user["pp_rank"]
+        LEVEL=user["level"]
+        COUNTRY=user["country"]
         e = discord.Embed(title = f'osu! Profile for user {user_name}', description=f'Player ID : {user_id}', url = f'https://osu.ppy.sh/users/{user_id}', color = 0xFF69B4)
         await ctx.send(embed = e)
 
