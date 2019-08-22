@@ -13,12 +13,12 @@ class Fun(commands.Cog):
         self.bot = bot
         self.config = bot.config
     
-    async def nekosdotlife(self, rqimg):
-        async with aiohttp.ClientSession() as session:
-            async with session.get(f"https://nekos.life/api/v2/img/{rqimg}") as resp:
-                await resp.raise_for_status()
+    def nekosdotlife(self, rqimg):
+        with aiohttp.ClientSession() as session:
+            with session.get(f"https://nekos.life/api/v2/img/{rqimg}") as resp:
+                resp.raise_for_status()
                 print(resp.read(), resp.headers)
-                payload = await resp.json()
+                payload = resp.json()
             image = payload
             image_url = image["url"]
         print(image_url)
