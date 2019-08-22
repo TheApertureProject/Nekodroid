@@ -40,29 +40,33 @@ class Fun(commands.Cog):
     @commands.command()
     async def hug(self, ctx, usr: discord.User):
         e = discord.Embed(description=f"{ctx.author.name} gently hugged {usr.name} ~", color=0x36393E)
-        e.set_image(url=await self.nekosdotlife("hug"))
-        e.set_footer(text=f'Images may be a bit long to load. Sorrie {sorrie}')
+        img_url = await self.nekosdotlife("hug")
+        e.set_image(url=img_url)
+        e.set_footer(text=f'Image not displaying ? [Click here]({img_url})')
         await ctx.send(embed=e)
 
     @commands.command()
     async def pat(self, ctx, usr: discord.User):
         e = discord.Embed(description=f"{ctx.author.name} gently patted {usr.name}'s head.", color=0x36393E)
-        e.set_image(url=await self.nekosdotlife("pat"))
-        e.set_footer(text=f'Images may be a bit long to load. Sorrie {sorrie}')
+        img_url = await self.nekosdotlife("pat")
+        e.set_image(url=img_url)
+        e.set_footer(text=f'Image not displaying ? [Click here]({img_url})')
         await ctx.send(embed=e)
         
     @commands.command()
     async def kiss(self, ctx, usr: discord.User):
         e = discord.Embed(description=f"{ctx.author.name} passionately kissed {usr.name}. So lovely ~", color=0x36393E)
-        e.set_image(url=await self.nekosdotlife("kiss"))
-        e.set_footer(text=f'Images may be a bit long to load. Sorrie {sorrie}')
+        img_url = await self.nekosdotlife("kiss")
+        e.set_image(url=img_url)
+        e.set_footer(text=f'Image not displaying ? [Click here]({img_url})')
         await ctx.send(embed=e)
 
     @commands.command(aliases=['hit'])
     async def slap(self, ctx, usr: discord.User):
         e = discord.Embed(description=f"{ctx.author.name} slapped {usr.name} !", color=0x36393E)
-        e.set_image(url=await self.nekosdotlife("slap"))
-        e.set_footer(text=f'Images may be a bit long to load. Sorrie {sorrie}')
+        img_url = await self.nekosdotlife("slap")
+        e.set_image(url=img_url)
+        e.set_footer(text=f'Image not displaying ? [Click here]({img_url})')
         await ctx.send(embed=e)
 
     @commands.command(alisases=['fact'])
