@@ -5,6 +5,7 @@ import asyncio
 import random
 import json
 import nekos
+import aiohttp
 
 with open('./fun.json', 'r') as cjson:
     pictures = json.load(cjson)
@@ -31,10 +32,18 @@ class Fun(commands.Cog):
     
     @commands.command()
     async def hug(self, ctx, usr: discord.User):
-        gifurl = random.choice(HUGSG)
-        e = discord.Embed(description=f"{ctx.author.name} gently hugged {usr.name} ~", color=0x36393E)
-        e.set_image(url=f"https://nekos.life/api/hug")
-        await ctx.send(embed=e)
+        async with aiohttp.ClientSession() as session:
+            async with session.get("https://nekos.life/api/hug") as resp:
+                resp.raise_for_status()
+                payload = await resp.json()
+        if len(payload) == 0:
+            await ctx.send(f'{redcross} | `nekos.life` API error. Please retry later')
+        else:
+            image = payload[0]
+            image_url = image["url"]
+            e = discord.Embed(description=f"{ctx.author.name} gently hugged {usr.name} ~", color=0x36393E)
+            e.set_image(url=image.url)
+            await ctx.send(embed=e)
 
     @commands.command()
     async def pat(self, ctx, usr: discord.User):
