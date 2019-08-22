@@ -35,6 +35,7 @@ class Fun(commands.Cog):
         async with aiohttp.ClientSession() as session:
             async with session.get("https://nekos.life/api/hug") as resp:
                 resp.raise_for_status()
+                print(await resp.read(), resp.headers)
                 payload = await resp.json()
         if len(payload) == 0:
             await ctx.send(f'{redcross} | `nekos.life` API error. Please retry later')
