@@ -47,7 +47,7 @@ class Fun(commands.Cog):
     @commands.command()
     async def pat(self, ctx, usr: discord.User):
         img_url = await self.nekosdotlife("pat")
-        e = discord.Embed(description=f"{ctx.author.name} gently patted {usr.name}'s head.", url=img_url, color=0x36393E)
+        e = discord.Embed(description=f"{ctx.author.name} gently pat {usr.name}'s head.", url=img_url, color=0x36393E)
         e.set_image(url=img_url)
         await ctx.send(embed=e)
         
