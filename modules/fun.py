@@ -51,7 +51,8 @@ class Fun(commands.Cog):
     @commands.command()
     async def kiss(self, ctx, usr: discord.User):
         e = discord.Embed(description=f"{ctx.author.name} passionately kissed {usr.name}. So lovely ~", color=0x36393E)
-        e.set_image(url=await self.nekosdotlife("kiss"))
+        img_url = await self.nekosdotlife("kiss")
+        e.set_image(url=img_url)
         await ctx.send(embed=e)
 
     @commands.command(aliases=['hit'])
