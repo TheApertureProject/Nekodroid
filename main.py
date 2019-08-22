@@ -31,7 +31,7 @@ async def status():
         names = [f'\'nya help\' !', 'on my supportserv, nya.', f'on {len(bot.guilds)} servers, nya !', f'with {len(bot.users)} users. Nya.']
         for name in names:
             await bot.change_presence(activity=discord.Game(name=name))
-            await asyncio.sleep(7)
+            await asyncio.sleep(120)
 
 @bot.event
 async def on_connect():
