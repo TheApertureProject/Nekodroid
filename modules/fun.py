@@ -39,7 +39,7 @@ class Fun(commands.Cog):
         if len(payload) == 0:
             await ctx.send(f'{redcross} | `nekos.life` API error. Please retry later')
         else:
-            image = payload[0]
+            image = payload
             image_url = image["url"]
             e = discord.Embed(description=f"{ctx.author.name} gently hugged {usr.name} ~", color=0x36393E)
             e.set_image(url=image.url)
