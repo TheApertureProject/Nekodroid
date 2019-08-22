@@ -15,7 +15,7 @@ class Fun(commands.Cog):
     
     async def nekosdotlife(self, img0):
         async with aiohttp.ClientSession() as session:
-            async with session.get(f"https://nekos.life/api/v2/{img0}") as resp:
+            async with session.get(f"https://nekos.life/api/v2/img/{img0}") as resp:
                 await resp.raise_for_status()
                 print(resp.read(), resp.headers)
                 payload = await resp.json()
