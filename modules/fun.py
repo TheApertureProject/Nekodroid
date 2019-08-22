@@ -43,7 +43,7 @@ class Fun(commands.Cog):
             image = payload
             image_url = image["url"]
             e = discord.Embed(description=f"{ctx.author.name} gently hugged {usr.name} ~", color=0x36393E)
-            e.set_image(url=image.url)
+            e.set_image(url=image_url)
             await ctx.send(embed=e)
 
     @commands.command()
