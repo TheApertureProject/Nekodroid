@@ -12,7 +12,18 @@ class Fun(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.config = bot.config
-
+    
+    def nekosdotlife(img0):
+        async with aiohttp.ClientSession() as session:
+            async with session.get(f"https://nekos.life/api/v2/{img0}") as resp:
+                resp.raise_for_status()
+                print(await resp.read(), resp.headers)
+                payload = await resp.json()
+            image = payload
+            image_url = image["url"]
+        return image_url
+        
+    
     @commands.command()
     async def roll(self, ctx, value: int):
         try:
@@ -26,51 +37,27 @@ class Fun(commands.Cog):
     
     @commands.command()
     async def hug(self, ctx, usr: discord.User):
-        async with aiohttp.ClientSession() as session:
-            async with session.get("https://nekos.life/api/hug") as resp:
-                resp.raise_for_status()
-                print(await resp.read(), resp.headers)
-                payload = await resp.json()
-        if len(payload) == 0:
-            await ctx.send(f'{redcross} | `nekos.life` API error. Please retry later')
-        else:
-            image = payload
-            image_url = image["url"]
-            e = discord.Embed(description=f"{ctx.author.name} gently hugged {usr.name} ~", color=0x36393E)
-            e.set_image(url=image_url)
-            await ctx.send(embed=e)
+        e = discord.Embed(description=f"{ctx.author.name} gently hugged {usr.name} ~", color=0x36393E)
+        e.set_image(url=nekosdotlife("hug"))
+        await ctx.send(embed=e)
 
     @commands.command()
     async def pat(self, ctx, usr: discord.User):
-        async with aiohttp.ClientSession() as session:
-            async with session.get("https://nekos.life/api/pat") as resp:
-                resp.raise_for_status()
-                print(await resp.read(), resp.headers)
-                payload = await resp.json()
-        if len(payload) == 0:
-            await ctx.send(f'{redcross} | `nekos.life` API error. Please retry later')
-        else:
-            image = payload
-            image_url = image["url"]
-            e = discord.Embed(description=f"{ctx.author.name} gently patted {usr.name}'s head.", color=0x36393E)
-            e.set_image(url=image_url)
-            await ctx.send(embed=e)
+        e = discord.Embed(description=f"{ctx.author.name} gently patted {usr.name}'s head.", color=0x36393E)
+        e.set_image(url=nekosdotlife("pat"))
+        await ctx.send(embed=e)
         
     @commands.command()
     async def kiss(self, ctx, usr: discord.User):
-        async with aiohttp.ClientSession() as session:
-            async with session.get("https://nekos.life/api/kiss") as resp:
-                resp.raise_for_status()
-                print(await resp.read(), resp.headers)
-                payload = await resp.json()
-        if len(payload) == 0:
-            await ctx.send(f'{redcross} | `nekos.life` API error. Please retry later')
-        else:
-            image = payload
-            image_url = image["url"]
-            e = discord.Embed(description=f"{ctx.author.name} passionately kissed {usr.name}.", color=0x36393E)
-            e.set_image(url=image_url)
-            await ctx.send(embed=e)
+        e = discord.Embed(description=f"{ctx.author.name} passionately kissed {usr.name}. So lovely ~", color=0x36393E)
+        e.set_image(url=nekosdotlife("kiss"))
+        await ctx.send(embed=e)
+
+    @commands.command(aliases=['hit'])
+    async def slap(self, ctx, usr: discord.User):
+        e = discord.Embed(description=f"{ctx.author.name} slapped {usr.name} !", color=0x36393E)
+        e.set_image(url=nekosdotlife("slap"))
+        await ctx.send(embed=e)
 
     @commands.command(alisases=['fact'])
     async def facts(self, ctx):
