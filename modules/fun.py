@@ -7,12 +7,15 @@ import json
 import nekos
 import aiohttp
 
+sorrie = '<:tohruilybutimshy:614150526933663754>'
+
 class Fun(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
         self.config = bot.config
     
+    # Gather images using nekos.life API
     async def nekosdotlife(self, rqimg):
         async with aiohttp.ClientSession() as session:
             async with session.get(f"https://nekos.life/api/v2/img/{rqimg}") as resp:
@@ -23,7 +26,6 @@ class Fun(commands.Cog):
         print(image_url)
         return image_url
         
-    
     @commands.command()
     async def roll(self, ctx, value: int):
         try:
@@ -39,24 +41,28 @@ class Fun(commands.Cog):
     async def hug(self, ctx, usr: discord.User):
         e = discord.Embed(description=f"{ctx.author.name} gently hugged {usr.name} ~", color=0x36393E)
         e.set_image(url=await self.nekosdotlife("hug"))
+        e.set_footer(text=f'Images may be a bit long to load. Sorrie {sorrie}')
         await ctx.send(embed=e)
 
     @commands.command()
     async def pat(self, ctx, usr: discord.User):
         e = discord.Embed(description=f"{ctx.author.name} gently patted {usr.name}'s head.", color=0x36393E)
         e.set_image(url=await self.nekosdotlife("pat"))
+        e.set_footer(text=f'Images may be a bit long to load. Sorrie {sorrie}')
         await ctx.send(embed=e)
         
     @commands.command()
     async def kiss(self, ctx, usr: discord.User):
         e = discord.Embed(description=f"{ctx.author.name} passionately kissed {usr.name}. So lovely ~", color=0x36393E)
         e.set_image(url=await self.nekosdotlife("kiss"))
+        e.set_footer(text=f'Images may be a bit long to load. Sorrie {sorrie}')
         await ctx.send(embed=e)
 
     @commands.command(aliases=['hit'])
     async def slap(self, ctx, usr: discord.User):
         e = discord.Embed(description=f"{ctx.author.name} slapped {usr.name} !", color=0x36393E)
         e.set_image(url=await self.nekosdotlife("slap"))
+        e.set_footer(text=f'Images may be a bit long to load. Sorrie {sorrie}')
         await ctx.send(embed=e)
 
     @commands.command(alisases=['fact'])
