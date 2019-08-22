@@ -39,34 +39,30 @@ class Fun(commands.Cog):
     
     @commands.command()
     async def hug(self, ctx, usr: discord.User):
-        e = discord.Embed(description=f"{ctx.author.name} gently hugged {usr.name} ~", color=0x36393E)
         img_url = await self.nekosdotlife("hug")
+        e = discord.Embed(description=f"{ctx.author.name} gently hugged {usr.name} ~", url=img_url, color=0x36393E)
         e.set_image(url=img_url)
-        e.set_footer(text=f'Image not displaying ? [Click here]({img_url})')
         await ctx.send(embed=e)
 
     @commands.command()
     async def pat(self, ctx, usr: discord.User):
-        e = discord.Embed(description=f"{ctx.author.name} gently patted {usr.name}'s head.", color=0x36393E)
         img_url = await self.nekosdotlife("pat")
+        e = discord.Embed(description=f"{ctx.author.name} gently patted {usr.name}'s head.", url=img_url, color=0x36393E)
         e.set_image(url=img_url)
-        e.set_footer(text=f'Image not displaying ? [Click here]({img_url})')
         await ctx.send(embed=e)
         
     @commands.command()
     async def kiss(self, ctx, usr: discord.User):
-        e = discord.Embed(description=f"{ctx.author.name} passionately kissed {usr.name}. So lovely ~", color=0x36393E)
         img_url = await self.nekosdotlife("kiss")
+        e = discord.Embed(title=f"{ctx.author.name} passionately kissed {usr.name}. So lovely ~", url=img_url, color=0x36393E)
         e.set_image(url=img_url)
-        e.set_footer(text=f'Image not displaying ? [Click here]({img_url})')
         await ctx.send(embed=e)
 
     @commands.command(aliases=['hit'])
     async def slap(self, ctx, usr: discord.User):
-        e = discord.Embed(description=f"{ctx.author.name} slapped {usr.name} !", color=0x36393E)
         img_url = await self.nekosdotlife("slap")
+        e = discord.Embed(description=f"{ctx.author.name} slapped {usr.name} !", url=img_url, color=0x36393E)
         e.set_image(url=img_url)
-        e.set_footer(text=f'Image not displaying ? [Click here]({img_url})')
         await ctx.send(embed=e)
 
     @commands.command(alisases=['fact'])
