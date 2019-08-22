@@ -33,7 +33,7 @@ class Fun(commands.Cog):
     async def hug(self, ctx, usr: discord.User):
         gifurl = random.choice(HUGSG)
         e = discord.Embed(description=f"{ctx.author.name} gently hugged {usr.name} ~", color=0x36393E)
-        e.set_image(url=f"https://media.discordapp.net/attachments/{gifurl}")
+        e.set_image(url=f"https://nekos.life/api/hug")
         await ctx.send(embed=e)
 
     @commands.command()
