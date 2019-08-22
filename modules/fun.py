@@ -17,8 +17,8 @@ class Fun(commands.Cog):
         with aiohttp.ClientSession() as session:
             with session.get(f"https://nekos.life/api/v2/{img0}") as resp:
                 resp.raise_for_status()
-                print(await resp.read(), resp.headers)
-                payload = await resp.json()
+                print(resp.read(), resp.headers)
+                payload = resp.json()
             image = payload
             image_url = image["url"]
         return image_url
