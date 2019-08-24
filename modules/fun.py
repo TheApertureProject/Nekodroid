@@ -23,7 +23,6 @@ class Fun(commands.Cog):
                 payload = await resp.json()
             image = payload
             image_url = image["url"]
-        print(image_url)
         return image_url
         
     @commands.command()
