@@ -1,5 +1,5 @@
-import discord
 from discord.ext import commands
+
 
 class SupportServ(commands.Cog):
     
@@ -14,6 +14,7 @@ class SupportServ(commands.Cog):
             await ctx.send('Role added. Just visit <#525421450241376266> to get the RP started !')
         else:
             await ctx.send("I'm sorry, but this command can be used on Kanna's support server only. Join here → https://discord.gg/PTT9UpZ")
+
 
 def setup(bot):
     bot.add_cog(SupportServ(bot))
