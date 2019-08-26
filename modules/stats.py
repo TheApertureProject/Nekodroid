@@ -1,11 +1,12 @@
+import os
+
+import aiohttp
 import discord
 from discord.ext import commands
-import aiohttp
-import json
-import os
 
 osu_api_key = os.environ["OSUTOKEN"]
 redcross = '<:white_cross_mark:612474623333761031>'
+
 
 class Stats(commands.Cog):
 
@@ -22,25 +23,25 @@ class Stats(commands.Cog):
         if len(payload) == 0:
             await ctx.send(f'{redcross} | Couldn\'t find any user matching this name / ID.')
         else:
-            user=payload[0]
+            user = payload[0]
 
-            USERNAME=user["username"]
-            USERID=user["user_id"]
-            JOINDATE=user["join_date"]
-            PLAYCOUNT=user["playcount"]
-            PPRAW=user["pp_raw"]
-            PPRANK=user["pp_rank"]
-            COUNTRYRANK=user["pp_country_rank"]
-            LEVEL=user["level"]
-            COUNTRY=user["country"]
+            USERNAME = user["username"]
+            USERID = user["user_id"]
+            JOINDATE = user["join_date"]
+            PLAYCOUNT = user["playcount"]
+            PPRAW = user["pp_raw"]
+            PPRANK = user["pp_rank"]
+            COUNTRYRANK = user["pp_country_rank"]
+            LEVEL = user["level"]
+            COUNTRY = user["country"]
 
             country = COUNTRY.lower()
-            a0=float(LEVEL)
-            a1=int(a0)
-            b0=float(PLAYCOUNT)
-            b1=int(b0)
-            c0=float(PPRAW)
-            c1=int(c0)
+            a0 = float(LEVEL)
+            a1 = int(a0)
+            b0 = float(PLAYCOUNT)
+            b1 = int(b0)
+            c0 = float(PPRAW)
+            c1 = int(c0)
 
             userinfo=f"""Joined {JOINDATE}
 Level : `{a1}`
@@ -56,6 +57,7 @@ Country ranking : `#{COUNTRYRANK}`"""
             e.add_field(name='Ranking', value=ranking)
             e.set_thumbnail(url=f'https://a.ppy.sh/{USERID}')
             await ctx.send(embed = e)
+
 
 def setup(bot):
     bot.add_cog(Stats(bot))
