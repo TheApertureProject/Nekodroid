@@ -1,15 +1,15 @@
+import os
+
+import bitly_api
 import discord
 from discord.ext import commands
-import datetime
-import bitly_api
-import json
-import os
-import googletrans
 from googletrans import Translator
+
 translator = Translator()
 
 BITLY_API_USER = os.environ["BITLYUSERNAME"]
 BITLY_API_KEY = os.environ["BITLYTOKEN"]
+
 
 class Utilities(commands.Cog):
 
@@ -44,7 +44,7 @@ class Utilities(commands.Cog):
             response = bitly_login.shorten(uri = rqurl)
             result = response['url']
             await ctx.send(f'***Shortened bit.ly link*** 🔀 <{result}>')
-        except:
+        except Exception as e:
             await ctx.send('An error occured, nya. Please check the entered URL for spaces or invalid caracters, nya !')
         
     @commands.command(aliases=['emoji', 'loot'])
@@ -52,6 +52,7 @@ class Utilities(commands.Cog):
         e = discord.Embed(description=f"Emoji `{emote.name}` requested", title='Emoji', url=emote.url, color=0x0099ff)
         e.set_thumbnail(url=emote.url)
         await ctx.send(embed=e)
+
 
 def setup(bot):
     bot.add_cog(Utilities(bot))
