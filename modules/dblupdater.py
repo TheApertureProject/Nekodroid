@@ -1,21 +1,21 @@
-import dbl
-import discord
-from discord.ext import commands
-import aiohttp
 import asyncio
 import logging
 import os
 
+import dbl
+from discord.ext import commands
+
 DBLTOKEN = os.environ["DBLTOKEN"]
 
+
 class DiscordBotsOrgAPI(commands.Cog):
-    
+
     def __init__(self, bot):
         self.bot = bot
         self.token = DBLTOKEN
         self.dblpy = dbl.Client(self.bot, self.token)
         self.bot.loop.create_task(self.update_stats())
-	
+
     async def update_stats(self):
         while True:
             try:
@@ -23,6 +23,7 @@ class DiscordBotsOrgAPI(commands.Cog):
             except Exception as e:
                 print(e.args)
             await asyncio.sleep(1800)
+
 
 def setup(bot):
     global logger

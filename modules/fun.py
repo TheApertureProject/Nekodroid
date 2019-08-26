@@ -1,11 +1,10 @@
-import discord
-from discord.ext import commands
-from random import randint
 import asyncio
-import random
-import json
-import nekos
+from random import randint
+
 import aiohttp
+import discord
+import nekos
+from discord.ext import commands
 
 sorrie = '<:tohruilybutimshy:614150526933663754>'
 
