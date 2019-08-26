@@ -1,6 +1,6 @@
-import discord
-from discord.ext import commands
 import json
+
+from discord.ext import commands
 
 with open('./config.json', 'r') as cjson:
     config = json.load(cjson)

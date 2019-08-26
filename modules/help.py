@@ -1,7 +1,7 @@
+import json
+
 import discord
 from discord.ext import commands
-import datetime
-import json
 
 with open('./config.json', 'r') as cjson:
     config = json.load(cjson)

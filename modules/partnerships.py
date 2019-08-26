@@ -47,8 +47,7 @@ Rejoignez-nous maintenant en [**cliquant ici**](https://discord.gg/JEUUM8c) !"""
             await chan.send('@here')
         elif mentionning == 'everyone':
             await chan.send('@everyone')
-        else :
-            pass
+
 
 def setup(bot):
     bot.add_cog(Partnership(bot))
