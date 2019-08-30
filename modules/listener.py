@@ -40,6 +40,7 @@ class Listeners(Cog):
 
     @Cog.listener()
     async def on_member_join(self, member):
+        # Nekodroid support server welcomer
         if member.guild.id == 612342503089242182:
             e = discord.Embed(
                 description="Thanks for joining my support server ! Please make sure you've read the <#612699815662452785> before chatting with other members. Hope you'll enjoy your stay here !",
@@ -51,6 +52,40 @@ class Listeners(Cog):
             await member.send(embed=e)
             role = discord.utils.get(member.guild.roles, name='Members')
             await member.add_roles(role)
+        
+        # Aperture welcomer
+        if member.guild.id == 466600971213209600:
+            role = discord.utils.get(member.guild.roles, name='Cuties')
+	        role2 = discord.utils.get(member.guild.roles, name='▬▬▬▬▬▬Profil▬▬▬▬▬▬▬')
+	        role3 = discord.utils.get(member.guild.roles, name='▬▬▬▬▬▬Hobbies▬▬▬▬▬▬')
+	        role4 = discord.utils.get(member.guild.roles, name='▬▬▬▬▬Jeux-vidéos▬▬▬▬▬')
+	        a = f"""Bienvenue à toi ! Je t'ai attribué tous les rôles nécessaires à ta bonne intégration sur notre serveur.
+
+	| Nous disposons d'un système de rôle auto-attribuables par l'utilisateur, donc n'hésite pas à jeter un oeil dans <#466643001066782721>, <#466643077122097153> et <#466643030246424597> pour les obtenir !
+	| Le channel <#467021094793117707> est à ta disposition pour en dire un peu plus sur toi !
+	| Et enfin, n'oublie pas de check <#466629126325927936> et <#466629153291239435> pour encore mieux connaître notre serveur et ses règles !
+
+Nous espérons que tu apprécieras ton séjour sur notre merveilleux serveur !
+
+> :desktop: Envie, vous aussi, de développer vos propres bots ? Rejoignez la section développement d'AP3RTURE ici ! https://discord.gg/bDJ7HFg
+
+> :loudspeaker: Aperture est maintenant a maintenant son propre forum de discussion. Vous pouvez nous rejoindre à l'adresse https://apertureproject.me !"""
+
+	        bvn = discord.Embed(description="The AP3RTURE Project", title='*Bienvenue !*', color=0x33CC33, timestamp=datetime.utcnow())
+	        bvn.set_thumbnail(url='https://cdn.discordapp.com/attachments/489041727697584148/503588638509105153/1540086527254.png')
+	        bvn.add_field(name=f'Merci de nous avoir rejoint, {member.display_name} !', value=a)
+	        bvn.set_image(url='https://cdn.discordapp.com/attachments/489041727697584148/503590193983389707/1540042806158.png')
+            await asyncio.sleep(30)
+	        try :
+	        	await member.send(embed=bvn)
+	        	my_guild = bot.get_guild(466600971213209600)
+	        	join = my_guild.get_channel(466600971213209602)
+	        	await join.send(f"Bienvenue, {member.mention} ! Merci de vérifier tes messages privés, je t'ai envoyé tout le nécessaire pour mieux maîtriser notre serveur... Nous espérons que tu te plairas ici !")
+	        except :
+        		my_guild = bot.get_guild(466600971213209600)
+        		join = my_guild.get_channel(466603496322498561)
+        		await join.send(embed=bvn)
+        	await member.add_roles(role, role2, role3, role4)
 
     @Cog.listener()
     async def on_guild_join(self, guild):
