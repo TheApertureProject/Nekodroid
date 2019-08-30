@@ -81,7 +81,7 @@ Nous espérons que tu apprécieras ton séjour sur notre merveilleux serveur !
             my_guild = bot.get_guild(466600971213209600)
             join = my_guild.get_channel(466600971213209602)
             await join.send(f"Bienvenue, {member.mention} ! Merci de vérifier tes messages privés, je t'ai envoyé tout le nécessaire pour mieux maîtriser notre serveur... Nous espérons que tu te plairas ici !")
-	    except :
+        except :
             my_guild = bot.get_guild(466600971213209600)
             join = my_guild.get_channel(466603496322498561)
             await join.send(embed=bvn)
