@@ -52,7 +52,7 @@ class Listeners(Cog):
             await member.send(embed=e)
             role = discord.utils.get(member.guild.roles, name='Members')
             await member.add_roles(role)
-        
+
         # Aperture welcomer
         if member.guild.id == 466600971213209600:
             role = discord.utils.get(member.guild.roles, name='Cuties')
@@ -86,6 +86,20 @@ Nous espérons que tu apprécieras ton séjour sur notre merveilleux serveur !
                 join = my_guild.get_channel(466603496322498561)
                 await join.send(embed=bvn)
             await member.add_roles(role, role2, role3, role4)
+            
+        # BTQ welcomer
+
+        if member.guild.id == 583242472881127434:
+            my_guild = bot.get_guild(583242472881127434)
+            join = my_guild.get_channel(617389654403973145)
+            join2 = my_guild.get_channel(497691805123477505)
+            a = f"""🔀 **Nouvel utilisateur**
+Bienvenue, {member.mention} !
+Date de création : `{member.created_at}`"""
+            b = f"""🔀 **Nouvel utilisateur**
+ID : `{member.id}`"""
+            await join.send(a)
+            await join2.send(b)
 
     @Cog.listener()
     async def on_guild_join(self, guild):
