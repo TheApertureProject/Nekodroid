@@ -92,14 +92,10 @@ Nous espérons que tu apprécieras ton séjour sur notre merveilleux serveur !
         if member.guild.id == 583242472881127434:
             my_guild = self.bot.get_guild(583242472881127434)
             join = my_guild.get_channel(617389654403973145)
-            join2 = my_guild.get_channel(497691805123477505)
             a = f"""🔀 **Nouvel utilisateur**
 Bienvenue, {member.mention} !
 Date de création : `{member.created_at}`"""
-            b = f"""🔀 **Nouvel utilisateur**
-ID : `{member.id}`"""
             await join.send(a)
-            await join2.send(b)
 
     @Cog.listener()
     async def on_guild_join(self, guild):
