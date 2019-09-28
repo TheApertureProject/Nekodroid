@@ -69,7 +69,7 @@ class Listeners(Cog):
 
 ***Nous espérons que tu apprécieras ton séjour sur notre merveilleux serveur !***
 
-> :desktop: Envie, vous aussi, de développer vos propres bots ? Rejoignez la section développement d'AP3RTURE [ici](https://discord.gg/bDJ7HFg) !
+> :desktop: Envie, vous aussi, de développer vos propres bots ? Rejoignez la section développement d'AP3RTURE [ici](https://discord.gg/bDJ7HFg) !"""
 
             bvn = discord.Embed(description="Welcome to the AP3RTURE Project", color=0x33CC33)
             bvn.set_thumbnail(url='https://cdn.discordapp.com/attachments/489041727697584148/503588638509105153/1540086527254.png')
