@@ -64,7 +64,7 @@ Country ranking : `#{COUNTRYRANK}`"""
         async with aiohttp.ClientSession() as session:
             async with session.get("https://forum.apertureproject.me/users", params={"username": user_name}) as resp:
                 resp.raise_for_status()
-                payload = await resp.json()
+                payload = await resp.json(content_type = None)
         if len(payload) == 0:
             await ctx.send(f'{redcross} | Couldn\'t find any user matching this name on aper.me.')
         else:
