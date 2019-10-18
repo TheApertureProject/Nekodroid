@@ -65,9 +65,9 @@ Country ranking : `#{COUNTRYRANK}`"""
             async with session.get("https://forum.apertureproject.me/users", params={"username": user_name}) as resp:
                 resp.raise_for_status()
                 payload = await resp.json()
-       if len(payload) == 0:
+        if len(payload) == 0:
             await ctx.send(f'{redcross} | Couldn\'t find any user matching this name on aper.me.')
-       else:
+        else:
             user = payload[0]
 
             USERNAME = user["username"]
