@@ -72,15 +72,18 @@ class Listeners(Cog):
 > :desktop: Envie, vous aussi, de développer vos propres bots ? Rejoignez la section développement d'AP3RTURE [ici](https://discord.gg/bDJ7HFg) !"""
 
             bvn = discord.Embed(description="Welcome to the AP3RTURE Project", color=0x33CC33)
-            bvn.set_thumbnail(url='https://cdn.discordapp.com/attachments/489041727697584148/503588638509105153/1540086527254.png')
+            bvn.set_thumbnail(
+                url='https://cdn.discordapp.com/attachments/489041727697584148/503588638509105153/1540086527254.png')
             bvn.add_field(name=f'Merci de nous avoir rejoint, {member.display_name} !', value=a)
-            bvn.set_image(url='https://cdn.discordapp.com/attachments/489041727697584148/503590193983389707/1540042806158.png')
+            bvn.set_image(
+                url='https://cdn.discordapp.com/attachments/489041727697584148/503590193983389707/1540042806158.png')
             await asyncio.sleep(30)
-            try :
+            try:
                 await member.send(embed=bvn)
                 my_guild = self.bot.get_guild(466600971213209600)
                 join = my_guild.get_channel(466600971213209602)
-                await join.send(f"Bienvenue, {member.mention} ! Merci de vérifier tes messages privés, je t'ai envoyé tout le nécessaire pour mieux maîtriser notre serveur... Nous espérons que tu te plairas ici !")
+                await join.send(
+                    f"Bienvenue, {member.mention} ! Merci de vérifier tes messages privés, je t'ai envoyé tout le nécessaire pour mieux maîtriser notre serveur... Nous espérons que tu te plairas ici !")
             except discord.HTTPException:
                 my_guild = self.bot.get_guild(466600971213209600)
                 join = my_guild.get_channel(466603496322498561)

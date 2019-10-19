@@ -1,6 +1,8 @@
+import sys
+
 import discord
 from discord.ext import commands
-import sys
+
 
 class Master(commands.Cog):
 
@@ -8,19 +10,20 @@ class Master(commands.Cog):
         self.bot = bot
         self.config = bot.config
 
+    @staticmethod
     def is_owner(ctx):
         if ctx.author.id == 497691805123477505:
             return True
         else:
             return False
-    
+
     @commands.check(is_owner)
     @commands.command()
     async def leaveserv(self, ctx, idnum):
-        idnum= self.bot.get_guild(idnum)
+        idnum = self.bot.get_guild(idnum)
         await idnum.leave()
         await ctx.send(f'Server {idnum.name} left.')
-    
+
     @commands.check(is_owner)
     @commands.command(pass_context=True)
     async def say(self, ctx, channel: discord.TextChannel, *, text):
@@ -52,6 +55,7 @@ class Master(commands.Cog):
             await ctx.send('Access denied. You are not my Master !')
         else:
             raise err
+
 
 def setup(bot):
     bot.add_cog(Master(bot))
