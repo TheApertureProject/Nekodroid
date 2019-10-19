@@ -5,6 +5,7 @@ import discord
 from discord.ext import commands
 
 osu_api_key = os.environ["OSUTOKEN"]
+dis_api_key = os.environ["DISCOURSETOKEN"]
 redcross = '<:white_cross_mark:612474623333761031>'
 
 
@@ -58,6 +59,37 @@ Country ranking : `#{COUNTRYRANK}`"""
             e.set_thumbnail(url=f'https://a.ppy.sh/{USERID}')
             await ctx.send(embed = e)
 
+    @commands.command(aliases = ['forumuser', 'forum', 'aperture', 'apertureuser', 'aperuser'])
+    async def aper(self, ctx, user_name):
+        async with aiohttp.ClientSession() as session:
+            async with session.get("https://forum.apertureproject.me/users", params={"username": user_name}) as resp:
+                resp.raise_for_status()
+                payload = await resp.json(content_type = None)
+        if len(payload) == 0:
+            await ctx.send(f'{redcross} | Couldn\'t find any user matching this name on aper.me.')
+        else:
+            user = payload[0]
+
+            USERNAME = user["username"]
+            USERID = user["id"]
+            JOINEDAT = user["created_at"]
+            LASTPOSTED = user["last_posted_at"]
+            LASTSEEN = user["last_seen_at"]
+            TRUSTLEVEL = user["trust_level"]
+            BADGECOUNT = user["badge_count"]
+            WEBSITE = user["website_name"]
+
+            userinfo=f"""Joined {JOINEDAT}
+Last posted at {LASTPOSTED}
+Last seen at {LASTSEEN}
+Trust level : `{TRUSTLEVEL}`
+Badge count : `{BADGECOUNT}`
+Personal website : `{WEBSITE}`"""
+
+            e = discord.Embed(title = f'👥 {USERNAME}', description=f':id: {USERID}', url = f'https://forum.apertureproject.me/u/{USERNAME}', color = 0x00fad1)
+            e.set_author(name="aper.me profile info", icon_url='https://forum.apertureproject.me/uploads/default/original/1X/402bed02389225af6e0777113915126691b88483.png')
+            e.add_field(name='User information', value=userinfo)
+            await ctx.send(embed = e)
 
 def setup(bot):
     bot.add_cog(Stats(bot))
