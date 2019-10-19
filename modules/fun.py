@@ -88,11 +88,9 @@ class Fun(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         btq_id = 583242472881127434
-        if 'neko' in message.content:
-            if message.guild.id != btq_id:
-                await message.channel.send(nekos.textcat())
-        if 'Neko' in message.content:
-            if message.guild.id != btq_id:
-                await message.channel.send(nekos.textcat())
+        if 'neko' in message.content and message.guild.id != btq_id:
+            await message.channel.send(nekos.textcat())
+        if 'Neko' in message.content and message.guild.id != btq_id:
+            await message.channel.send(nekos.textcat())
 def setup(bot):
     bot.add_cog(Fun(bot))
