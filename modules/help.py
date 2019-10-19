@@ -20,6 +20,7 @@ class Help(commands.Cog):
         self.bot = bot
         self.config = bot.config
     
+    @staticmethod
     def is_owner(ctx):
         if ctx.author.id == 458586186328571913:
             return True
