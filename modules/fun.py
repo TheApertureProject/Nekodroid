@@ -35,7 +35,6 @@ class Fun(commands.Cog):
         except Exception as e:
             print(e.args)
             await ctx.send('Please send a valid number of messages !')
-
     @commands.command(aliases=['cuddle'])
     async def hug(self, ctx, usr: discord.User):
         img_url = await self.nekosdotlife("hug")
@@ -46,16 +45,14 @@ class Fun(commands.Cog):
     @commands.command()
     async def pat(self, ctx, usr: discord.User):
         img_url = await self.nekosdotlife("pat")
-        e = discord.Embed(description=f"{ctx.author.name} gently pat {usr.mention}'s head.", url=img_url,
-                          color=0x36393E)
+        e = discord.Embed(description=f"{ctx.author.name} gently pat {usr.mention}'s head.", url=img_url, color=0x36393E)
         e.set_image(url=img_url)
         await ctx.send(embed=e)
 
     @commands.command()
     async def kiss(self, ctx, usr: discord.User):
         img_url = await self.nekosdotlife("kiss")
-        e = discord.Embed(title=f"{ctx.author.name} passionately kissed {usr.mention}. So lovely ~", url=img_url,
-                          color=0x36393E)
+        e = discord.Embed(title=f"{ctx.author.name} passionately kissed {usr.mention}. So lovely ~", url=img_url, color=0x36393E)
         e.set_image(url=img_url)
         await ctx.send(embed=e)
 
@@ -96,7 +93,6 @@ class Fun(commands.Cog):
             await message.channel.send(nekos.textcat())
         if 'Neko' in message.content and message.guild.id != btq_id:
             await message.channel.send(nekos.textcat())
-
-
+            
 def setup(bot):
     bot.add_cog(Fun(bot))
