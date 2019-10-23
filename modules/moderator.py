@@ -16,14 +16,14 @@ class Moderator(commands.Cog):
     @commands.command()
     async def ban(self, ctx, member: discord.Member, *, reason: str = None):
         try:
-            if reason == None:
+            if not reason:
                 await member.ban()
                 await ctx.send('✅ | Member' + member + 'was successfully banned ! Good bye !')
             else:
                 await member.ban(reason=reason)
                 await ctx.send(
                     f'✅ | Member {member} was successfully banned for the following reason : {reason} ! Good bye !')
-        except:
+        except discord.HTTPException:
             await ctx.send(f'{redcross} | Couldn\'t ban {member}.')
 
     @commands.guild_only()
@@ -33,7 +33,7 @@ class Moderator(commands.Cog):
         try:
             await member.kick()
             await ctx.send('Member', member, 'was successfully kicked ! Babaï !')
-        except:
+        except discord.HTTPException:
             await ctx.send(f'{redcross} | Couldn\'t kick {member}.')
 
     @commands.guild_only()
