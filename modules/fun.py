@@ -88,11 +88,22 @@ class Fun(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        btq_id = 583242472881127434
         if 'neko' in message.content and message.guild.id != btq_id:
             await message.channel.send(nekos.textcat())
         if 'Neko' in message.content and message.guild.id != btq_id:
             await message.channel.send(nekos.textcat())
-            
+
+    @commands.command(aliases=['pile', 'face', 'coin', 'flip'])
+    async def coinflip(self, ctx):
+        face=randint(0,1)
+        e = discord.Embed()
+        e.set_thumbnail(url=
+            'https://cdn.discordapp.com/attachments/612394933294202891/646386235635662849/girl-concentration-composure-coin-toss-wallpaper-preview.png')
+        if face = 0:
+            await e.add_field(name='Coin flip', value='Tail!')
+        else:
+            await e.add_field(name='Coin flip', value='Head!')
+        await ctx.send(embed=e)
+
 def setup(bot):
     bot.add_cog(Fun(bot))
