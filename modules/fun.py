@@ -97,8 +97,8 @@ class Fun(commands.Cog):
     async def coinflip(self, ctx):
         face=randint(0,1)
         e = discord.Embed()
-        e.set_thumbnail(url=
-            'https://cdn.discordapp.com/attachments/612394933294202891/646386235635662849/girl-concentration-composure-coin-toss-wallpaper-preview.png')
+        e.set_thumbnail(
+            url='https://cdn.discordapp.com/attachments/612394933294202891/646386235635662849/girl-concentration-composure-coin-toss-wallpaper-preview.png')
         if face == 0:
             await e.add_field(name='Coin flip', value='Tail!')
         else:
