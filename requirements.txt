@@ -1,5 +1,5 @@
 aiohttp
-discord
+discord.py
 dblpy
 git+https://github.com/BoseCorp/py-googletrans.git
 git+https://github.com/bitly/bitly-api-python.git
