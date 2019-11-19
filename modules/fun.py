@@ -99,7 +99,7 @@ class Fun(commands.Cog):
         e = discord.Embed()
         e.set_thumbnail(url=
             'https://cdn.discordapp.com/attachments/612394933294202891/646386235635662849/girl-concentration-composure-coin-toss-wallpaper-preview.png')
-        if face = 0:
+        if face == 0:
             await e.add_field(name='Coin flip', value='Tail!')
         else:
             await e.add_field(name='Coin flip', value='Head!')
