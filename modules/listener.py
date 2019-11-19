@@ -160,12 +160,6 @@ Guild Nr. `{len(self.bot.guilds)}`"""
                                        description=f'```py\n{error}\n```')
             errorembed.add_field(name='Server', value=f'**`{ctx.guild.name}`** ({ctx.guild.id})', inline=True)
             errorembed.add_field(name='Command', value=f'**{ctx.command.name}**')
-            try:
-                invite_url = await self.bot.get_channel(self.bot.get_guild(ctx.guild.id).system_channel).create_invite()
-                invite = f"[Join this server]({invite_url.url})"
-            except discord.HTTPException:
-                invite = "Couldn't generate any invite for this server."
-            errorembed.add_field(name='Join server', value=invite)
             channel = ctx.bot.get_channel(612358161826840708)
             await ctx.send(embed=embedbasic)
             await channel.send(embed=errorembed)
