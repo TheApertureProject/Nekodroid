@@ -122,6 +122,7 @@ class Help(commands.Cog):
         d.add_field(name=f'<{prefiximg}>`facts`', value="Returns a random fact.")
         d.add_field(name=f'<{prefiximg}>`why`', value="Returns a question.")
         d.add_field(name=f'<{prefiximg}>`cats`', value="Returns a kitty pic ~")
+        d.add_field(name=f'<{prefiximg}>`conflip`', value="Play heads or tails.")
         await ctx.send(embed=d)
 
     @help.command(name="stats")
