@@ -161,6 +161,5 @@ class Help(commands.Cog):
         await ctx.send(
             "Please type `k!help <name of the category>` to get specific help about a category. Don't forget the `help` !")
 
-
 def setup(bot):
     bot.add_cog(Help(bot))
