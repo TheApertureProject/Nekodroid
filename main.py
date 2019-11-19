@@ -24,7 +24,7 @@ OWNER = config["owner_id"]
 VERSION = config["version"]
 TOKEN = os.environ["TOKEN"]
 
-bot = commands.Bot(command_prefix=[PREFIX, "nya ", "Nya "])
+bot = commands.Bot(command_prefix=[PREFIX, "nya ", "Nya ", "Nya!"])
 
 bot.config = config
 bot.ready = False
