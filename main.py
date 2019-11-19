@@ -56,6 +56,7 @@ async def on_ready():
             logging.exception('Failed to load {} : {}'.format(module, e))
     print('Logged in.')
     print('{}/{} modules loaded'.format(loaded, len(modules)))
+    print(discord.__version__)
     bot.loop.create_task(status())
 
 
