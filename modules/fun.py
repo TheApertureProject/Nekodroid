@@ -88,9 +88,9 @@ class Fun(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if 'neko' in message.content and message.guild.id != btq_id:
+        if 'neko' in message.content:
             await message.channel.send(nekos.textcat())
-        if 'Neko' in message.content and message.guild.id != btq_id:
+        if 'Neko' in message.content:
             await message.channel.send(nekos.textcat())
 
     @commands.command(aliases=['pile', 'face', 'coin', 'flip'])
