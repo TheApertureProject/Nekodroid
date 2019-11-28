@@ -59,21 +59,19 @@ class Listeners(Cog):
             role2 = discord.utils.get(member.guild.roles, name='▬▬▬▬▬▬Profil▬▬▬▬▬▬▬')
             role3 = discord.utils.get(member.guild.roles, name='▬▬▬▬▬▬Hobbies▬▬▬▬▬▬')
             role4 = discord.utils.get(member.guild.roles, name='▬▬▬▬▬Jeux-vidéos▬▬▬▬▬')
-            a = f"""Bienvenue à toi ! Je t'ai attribué tous les rôles nécessaires à ta bonne intégration sur notre serveur.
+            a = f"""> :warning: Aperture est avant tout un forum. Pour obtenir un accès complet au serveur, inscrivez-vous [ici](https://forum.apertureproject.me/) à l'aide de votre compte Discord, et contactez un membre *administrateur* / *A.P.E.R.T.U.R.E* avec captures d'écran en main.
 
-> :loudspeaker: APERTURE, **c'est avant tout un forum !** Rejoignez-nous [ici](https://forum.apertureproject.me/), c'est gratuit ~
+> :name_badge: Fonctionnalités réservées aux utilisateurs enregistrés :
+> :small_orange_diamond: Système d'expérience Mee6
+> :small_orange_diamond: Accès complet aux salons de partage média
+> :small_orange_diamond: Accès aux salons *events*, *giveaways* et casino
 
-> Rôles personnalisables : <#466643001066782721>, <#466643077122097153> et <#466643030246424597>
-> Se présenter : <#467021094793117707>
-> À lire : <#466629126325927936> et <#466629153291239435>
+> :loudspeaker: N'oubliez pas que la création d'un compte est totalement gratuite !
 
-***Nous espérons que tu apprécieras ton séjour sur notre merveilleux serveur !***
+Merci d'avoir rejoint et bon séjour !"""
 
-> :desktop: Envie, vous aussi, de développer vos propres bots ? Rejoignez la section développement d'AP3RTURE [ici](https://discord.gg/bDJ7HFg) !"""
-
-            bvn = discord.Embed(description="Welcome to the AP3RTURE Project", color=0x33CC33)
+            bvn = discord.Embed(title='BIENVENUE SUR APERTURE !', color=0xFF0000)
             bvn.set_thumbnail(url='https://cdn.discordapp.com/attachments/489041727697584148/503588638509105153/1540086527254.png')
-            bvn.add_field(name=f'Merci de nous avoir rejoint, {member.display_name} !', value=a)
             bvn.set_image(url='https://cdn.discordapp.com/attachments/489041727697584148/503590193983389707/1540042806158.png')
             await asyncio.sleep(30)
             try :
