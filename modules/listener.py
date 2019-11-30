@@ -58,7 +58,7 @@ class Listeners(Cog):
             a = f"""
 BIENVENUE SUR APERTURE !
 
-> :warning: Aperture est avant tout un forum ! Vous pouvez vous créer un compte ici gratuitement : https://forum.apertureproject.me/. Des avantages vous seront réservés.
+> :warning: Aperture est avant tout un forum ! Vous pouvez vous créer un compte ici gratuitement : https://forum.apertureproject.me/. Des avantages vous seront réservés ; contactez un administrateur une fois votre compte créé et confirmé par mail.
 
 :small_orange_diamond: Salons importants : <#539929961512042506> | <#466629153291239435>
 
