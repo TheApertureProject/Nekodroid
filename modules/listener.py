@@ -77,7 +77,6 @@ Toute l'équipe d'Aperture vous souhaite un agréable séjour !"""
                 my_guild = self.bot.get_guild(466600971213209600)
                 join = my_guild.get_channel(466603496322498561)
                 await join.send(f'member.mention :', a)
-            await member.add_roles(role, role2, role3, role4)
 
     @Cog.listener()
     async def on_guild_join(self, guild):
