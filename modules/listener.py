@@ -55,34 +55,28 @@ class Listeners(Cog):
 
         # Aperture welcomer
         if member.guild.id == 466600971213209600:
-            role = discord.utils.get(member.guild.roles, name='Cuties')
-            role2 = discord.utils.get(member.guild.roles, name='▬▬▬▬▬▬Profil▬▬▬▬▬▬▬')
-            role3 = discord.utils.get(member.guild.roles, name='▬▬▬▬▬▬Hobbies▬▬▬▬▬▬')
-            role4 = discord.utils.get(member.guild.roles, name='▬▬▬▬▬Jeux-vidéos▬▬▬▬▬')
-            a = f"""> :warning: Aperture est avant tout un forum. Pour obtenir un accès complet au serveur, inscrivez-vous [ici](https://forum.apertureproject.me/) à l'aide de votre compte Discord, et contactez un membre *administrateur* / *A.P.E.R.T.U.R.E* avec captures d'écran en main.
+            a = f"""
+BIENVENUE SUR APERTURE !
 
-> :name_badge: Fonctionnalités réservées aux utilisateurs enregistrés :
-> :small_orange_diamond: Système d'expérience Mee6
-> :small_orange_diamond: Accès complet aux salons de partage média
-> :small_orange_diamond: Accès aux salons *events*, *giveaways* et casino
+> :warning: Aperture est avant tout un forum ! Vous pouvez vous créer un compte ici gratuitement : https://forum.apertureproject.me/. Des avantages vous seront réservés.
 
-> :loudspeaker: N'oubliez pas que la création d'un compte est totalement gratuite !
+:small_orange_diamond: Salons importants : <#539929961512042506> | <#466629153291239435>
 
-Merci d'avoir rejoint et bon séjour !"""
+:small_blue_diamond: Salons de rôles : <#466643077122097153> | <#466643030246424597> | <#466643001066782721>
 
-            bvn = discord.Embed(title='BIENVENUE SUR APERTURE !', color=0xFF0000)
-            bvn.set_thumbnail(url='https://cdn.discordapp.com/attachments/489041727697584148/503588638509105153/1540086527254.png')
-            bvn.set_image(url='https://cdn.discordapp.com/attachments/489041727697584148/503590193983389707/1540042806158.png')
+:small_blue_diamond: Présentez-vous : <#467021094793117707>
+
+Toute l'équipe d'Aperture vous souhaite un agréable séjour !"""
             await asyncio.sleep(30)
             try :
-                await member.send(embed=bvn)
+                await member.send(a)
                 my_guild = self.bot.get_guild(466600971213209600)
                 join = my_guild.get_channel(466600971213209602)
                 await join.send(f"Bienvenue, {member.mention} ! Merci de vérifier tes messages privés, je t'ai envoyé tout le nécessaire pour mieux maîtriser notre serveur... Nous espérons que tu te plairas ici !")
             except :
                 my_guild = self.bot.get_guild(466600971213209600)
                 join = my_guild.get_channel(466603496322498561)
-                await join.send(embed=bvn)
+                await join.send(f'member.mention :', a)
             await member.add_roles(role, role2, role3, role4)
 
     @Cog.listener()
