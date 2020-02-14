@@ -67,12 +67,14 @@ BIENVENUE SUR APERTURE !
 :small_blue_diamond: Présentez-vous : <#467021094793117707>
 
 Toute l'équipe d'Aperture vous souhaite un agréable séjour !"""
+            e = discord.Embed(title="Nos réseaux", description="[Twitter](https://twitter.com/ATotalRandom), [Instagram](https://instagram.com/apertureproject.me), [YouTube](https://www.youtube.com/channel/UCgRk9mGekGX4ocp8JVIM8FQ)"
             await asyncio.sleep(30)
             try :
                 await member.send(a)
                 my_guild = self.bot.get_guild(466600971213209600)
                 join = my_guild.get_channel(466600971213209602)
                 await join.send(f"Bienvenue, {member.mention} ! Merci de vérifier tes messages privés, je t'ai envoyé tout le nécessaire pour mieux maîtriser notre serveur... Nous espérons que tu te plairas ici !")
+                await member.send(embed=e)
             except :
                 my_guild = self.bot.get_guild(466600971213209600)
                 join = my_guild.get_channel(466603496322498561)
