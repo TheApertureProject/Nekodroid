@@ -25,17 +25,20 @@ class Datacom(commands.Cog):
         z = discord.Embed(title = "<a:loading:684031670520643640> | Creating your profile")
         y = await ctx.send(embed = z)
         
+        playerid = ctx.author.id
+        
+        user1 = db.profiles.find_one({'ui' : playerid})
+        
         if user1 is not None:
             a = discord.Embed(title="⚠️ | You've already created an account.")
             await y.edit(embed=a)
         else:
             UNAME = ctx.author.name
-            UID = ctx.author.id
             UDESC = "I'm a pretty chill person !"
             UMONEY = 1000
             ULEVEL = 1
         
-        profile = {'ui' : UID,
+        profile = {'ui' : playerid,
         'ud' : UDESC,
         'um' : UMONEY,
         'ul' : URANK,
@@ -49,6 +52,7 @@ class Datacom(commands.Cog):
         Level : {ULEVEL}"""
         
         e = discord.Embed(title = "✔️ | Neko-profile created !", description = a, color = 0x16c60c)
+        e.set_footer(text="Tip : edit your description by typing 'Nya desc <Description>' !")
         
         await y.edit(embed = e)
         
