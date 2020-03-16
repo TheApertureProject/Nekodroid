@@ -11,8 +11,6 @@ with open('./config.json', 'r') as cjson:
 DB_USERNAME = os.environ["DBUSERNAME"]
 DB_PASSWORD = os.environ["DBPASSWORD"]
 
-nekocoins = "a:nekocoins:689129268135067648"
-
 client = MongoClient(f"mongodb+srv://{DB_USERNAME}:{DB_PASSWORD}@kanna-mgpcj.mongodb.net/test?retryWrites=true&w=majority")
 db = client.dis_user
 
@@ -41,15 +39,15 @@ class Datacom(commands.Cog):
         
         profile = {'ui' : UID,
         'ud' : UDESC,
-        'um' : UMONEY
-        'ul' : URANK
+        'um' : UMONEY,
+        'ul' : URANK,
         }
 
         db.profiles.insert_one(profile)
         
         a = f"""**{UNAME}**'s profile
         `{UDESC}`
-        Balance : {UNMONEY} {nekocoins}
+        Balance : {UMONEY} <a:nekocoins:689129268135067648>
         Level : {ULEVEL}"""
         
         e = discord.Embed(title = "✔️ | Neko-profile created !", description = a, color = 0x16c60c)
