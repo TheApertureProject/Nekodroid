@@ -1,6 +1,7 @@
 aiohttp
 dblpy
 pymongo
+dnspython
 git+https://github.com/Rapptz/discord.py.git
 git+https://github.com/BoseCorp/py-googletrans.git
 git+https://github.com/bitly/bitly-api-python.git
