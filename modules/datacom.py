@@ -12,7 +12,7 @@ DB_USERNAME = os.environ["DBUSERNAME"]
 DB_PASSWORD = os.environ["DBPASSWORD"]
 
 client = MongoClient(f"mongodb+srv://{DB_USERNAME}:{DB_PASSWORD}@kanna-mgpcj.mongodb.net/test?retryWrites=true&w=majority")
-db = client.dis_user
+db = client.profiles
 
 class Datacom(commands.Cog):
     
@@ -24,8 +24,6 @@ class Datacom(commands.Cog):
     async def register(self, ctx):
         z = discord.Embed(title = "<a:loading:684031670520643640> | Creating your profile")
         y = await ctx.send(embed = z)
-        
-        db = client.profiles
         
         if user1 is not None:
             a = discord.Embed(title="⚠️ | You've already created an account.")
@@ -52,7 +50,7 @@ class Datacom(commands.Cog):
         
         e = discord.Embed(title = "✔️ | Neko-profile created !", description = a, color = 0x16c60c)
         
-        await y.edit(embed=e)
+        await y.edit(embed = e)
         
 def setup(bot):
     bot.add_cog(Datacom(bot))
