@@ -67,7 +67,7 @@ BIENVENUE SUR APERTURE !
 :small_blue_diamond: Présentez-vous : <#467021094793117707>
 
 Toute l'équipe d'Aperture vous souhaite un agréable séjour !"""
-            e = discord.Embed(title="Nos réseaux", description="[Twitter](https://twitter.com/ATotalRandom), [Instagram](https://instagram.com/apertureproject.me), [YouTube](https://www.youtube.com/channel/UCgRk9mGekGX4ocp8JVIM8FQ)"
+            e = discord.Embed(title="Nos réseaux", description="[Twitter](https://twitter.com/ATotalRandom), [Instagram](https://instagram.com/apertureproject.me), [YouTube](https://www.youtube.com/channel/UCgRk9mGekGX4ocp8JVIM8FQ)")
             await asyncio.sleep(30)
             try :
                 await member.send(a)
