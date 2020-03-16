@@ -41,7 +41,7 @@ class Datacom(commands.Cog):
         profile = {'ui' : playerid,
         'ud' : UDESC,
         'um' : UMONEY,
-        'ul' : URANK,
+        'ul' : ULEVEL,
         }
 
         db.profiles.insert_one(profile)
