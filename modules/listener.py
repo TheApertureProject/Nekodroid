@@ -1,10 +1,10 @@
 import asyncio
 import json
-from datetime import datetime
-
+import arrow
 import discord
 from discord.ext import commands
 from discord.ext.commands import Cog
+from datetime import datetime, date
 
 with open('./config.json', 'r') as cjson:
     config = json.load(cjson)
@@ -55,7 +55,14 @@ class Listeners(Cog):
 
         # Aperture welcomer
         if member.guild.id == 466600971213209600:
-            a = f"""
+            a = arrow.get(datetime.datetime.fromisoformat(member.created_at()))
+            b = arrow.get(date.today())
+            c = a-b
+            if c.days < 10 :
+                await ctx.send(":warning: Votre compte est trop récent pour pouvoir accéder au serveur. Veuillez-nous excuser pour la gêne encourue. Vous pouvez nous contacter via le forum (http://forum.aper.me) pour toute question.")
+                await member.kick()
+            else:
+                a = f"""
 BIENVENUE SUR APERTURE !
 
 > :warning: Aperture est avant tout un forum ! Vous pouvez vous créer un compte ici gratuitement : https://forum.apertureproject.me/. Des avantages vous seront réservés ; contactez un administrateur une fois votre compte créé et confirmé par mail.
@@ -67,18 +74,18 @@ BIENVENUE SUR APERTURE !
 :small_blue_diamond: Présentez-vous : <#467021094793117707>
 
 Toute l'équipe d'Aperture vous souhaite un agréable séjour !"""
-            e = discord.Embed(title="Nos réseaux", description="[Twitter](https://twitter.com/ATotalRandom), [Instagram](https://instagram.com/apertureproject.me), [YouTube](https://www.youtube.com/channel/UCgRk9mGekGX4ocp8JVIM8FQ)")
-            await asyncio.sleep(30)
-            try :
-                await member.send(a)
-                my_guild = self.bot.get_guild(466600971213209600)
-                join = my_guild.get_channel(466600971213209602)
-                await join.send(f"Bienvenue, {member.mention} ! Merci de vérifier tes messages privés, je t'ai envoyé tout le nécessaire pour mieux maîtriser notre serveur... Nous espérons que tu te plairas ici !")
-                await member.send(embed=e)
-            except :
-                my_guild = self.bot.get_guild(466600971213209600)
-                join = my_guild.get_channel(466603496322498561)
-                await join.send(f'member.mention :', a)
+                e = discord.Embed(title="Nos réseaux", description="[Twitter](https://twitter.com/ATotalRandom), [Instagram](https://instagram.com/apertureproject.me), [YouTube](https://www.youtube.com/channel/UCgRk9mGekGX4ocp8JVIM8FQ)")
+                await asyncio.sleep(30)
+                try :
+                    await member.send(a)
+                    my_guild = self.bot.get_guild(466600971213209600)
+                    join = my_guild.get_channel(466600971213209602)
+                    await join.send(f"Bienvenue, {member.mention} ! Merci de vérifier tes messages privés, je t'ai envoyé tout le nécessaire pour mieux maîtriser notre serveur... Nous espérons que tu te plairas ici !")
+                    await member.send(embed=e)
+                except :
+                    my_guild = self.bot.get_guild(466600971213209600)
+                    join = my_guild.get_channel(466603496322498561)
+                    await join.send(f'member.mention :', a)
 
     @Cog.listener()
     async def on_guild_join(self, guild):
