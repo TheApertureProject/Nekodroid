@@ -4,7 +4,9 @@ import arrow
 import discord
 from discord.ext import commands
 from discord.ext.commands import Cog
-from datetime import datetime, date
+import datetime
+from datetime import datetime
+from datetime import date
 
 with open('./config.json', 'r') as cjson:
     config = json.load(cjson)
@@ -55,7 +57,7 @@ class Listeners(Cog):
 
         # Aperture welcomer
         if member.guild.id == 466600971213209600:
-            a = arrow.get(datetime.date.fromisoformat(member.created_at()))
+            a = arrow.get(datetime.datetime.fromisoformat(member.created_at()))
             b = arrow.get(date.today())
             c = a-b
             if c.days < 10 :
