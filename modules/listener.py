@@ -55,7 +55,7 @@ class Listeners(Cog):
 
         # Aperture welcomer
         if member.guild.id == 466600971213209600:
-            a = arrow.get(datetime.datetime.fromisoformat(member.created_at()))
+            a = arrow.get(datetime.date.fromisoformat(member.created_at()))
             b = arrow.get(date.today())
             c = a-b
             if c.days < 10 :
