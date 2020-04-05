@@ -57,8 +57,10 @@ class Listeners(Cog):
 
         # Aperture welcomer
         if member.guild.id == 466600971213209600:
-            a = arrow.get(datetime.fromisoformat(member.created_at()))
-            b = arrow.get(date.today())
+            jdate = member.created_at()
+            tdate = date.today()
+            a = arrow.get(datetime.fromisoformat(jdate))
+            b = arrow.get(tdate)
             c = a-b
             if c.days < 10 :
                 await ctx.send(":warning: Votre compte est trop récent pour pouvoir accéder au serveur. Veuillez-nous excuser pour la gêne encourue. Vous pouvez nous contacter via le forum (http://forum.aper.me) pour toute question.")
