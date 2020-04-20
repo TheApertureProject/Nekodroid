@@ -23,22 +23,6 @@ class Listeners(Cog):
 
     def __init__(self, bot):
         self.bot = bot
-        self.GUILD_ID = 462871882916560896
-        self.TARGET_CH_ID = 531240029704552468
-        self.MSG_ID = 531544298228023311
-
-    #    @Listeners.listener
-    #    async def on_raw_reaction_add(self, emoji, message_id, channel_id, user_id):
-    #        if any((emoji != "\N{WHITE HEAVY CHECK MARK}", channel_id != self.TARGET_CH_ID, message_id != self.MSG_ID)):
-    #            return
-    #        member = self.bot.get_user(user_id)
-    #        role = discord.utils.get(member.guild.roles, name='Members')
-    #        await member.add_roles(role)
-    #        await member.send('Access Granted ! Welcome to my lovely server !')
-
-    #    async def on_message(self, message):
-    #        if self.bot.user.mentioned_in(message):
-    #            await message.channel.send(f'My prefix here is `{PREFIX}`.')
 
     @Cog.listener()
     async def on_member_join(self, member):
@@ -54,42 +38,6 @@ class Listeners(Cog):
             await member.send(embed=e)
             role = discord.utils.get(member.guild.roles, name='Members')
             await member.add_roles(role)
-
-        # Aperture welcomer
-        if member.guild.id == 466600971213209600:
-            jdate = member.created_at()
-            tdate = date.today()
-            a = arrow.get(jdate)
-            b = arrow.get(tdate)
-            c = a-b
-            if c.days < 10 :
-                await ctx.send(":warning: Votre compte est trop récent pour pouvoir accéder au serveur. Veuillez-nous excuser pour la gêne encourue. Vous pouvez nous contacter via le forum (http://forum.aper.me) pour toute question.")
-                await member.kick()
-            else:
-                a = f"""
-BIENVENUE SUR APERTURE !
-
-> :warning: Aperture est avant tout un forum ! Vous pouvez vous créer un compte ici gratuitement : https://forum.apertureproject.me/. Des avantages vous seront réservés ; contactez un administrateur une fois votre compte créé et confirmé par mail.
-
-:small_orange_diamond: Salons importants : <#539929961512042506> | <#466629153291239435>
-
-:small_blue_diamond: Salons de rôles : <#466643077122097153> | <#466643030246424597> | <#466643001066782721>
-
-:small_blue_diamond: Présentez-vous : <#467021094793117707>
-
-Toute l'équipe d'Aperture vous souhaite un agréable séjour !"""
-                e = discord.Embed(title="Nos réseaux", description="[Twitter](https://twitter.com/ATotalRandom), [Instagram](https://instagram.com/apertureproject.me), [YouTube](https://www.youtube.com/channel/UCgRk9mGekGX4ocp8JVIM8FQ)")
-                await asyncio.sleep(30)
-                try :
-                    await member.send(a)
-                    my_guild = self.bot.get_guild(466600971213209600)
-                    join = my_guild.get_channel(466600971213209602)
-                    await join.send(f"Bienvenue, {member.mention} ! Merci de vérifier tes messages privés, je t'ai envoyé tout le nécessaire pour mieux maîtriser notre serveur... Nous espérons que tu te plairas ici !")
-                    await member.send(embed=e)
-                except :
-                    my_guild = self.bot.get_guild(466600971213209600)
-                    join = my_guild.get_channel(466603496322498561)
-                    await join.send(f'member.mention :', a)
 
     @Cog.listener()
     async def on_guild_join(self, guild):
