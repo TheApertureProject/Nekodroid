@@ -159,7 +159,7 @@ class Help(commands.Cog):
     @commands.command(aliases=['utilities', 'moderator', 'all', 'master'])
     async def fun(self, ctx):
         await ctx.send(
-            "Please type `k!help <name of the category>` to get specific help about a category. Don't forget the `help` !")
+            f"Please type `{PREFIX}help <name of the category>` to get specific help about a category. Don't forget the `help` !")
 
 def setup(bot):
     bot.add_cog(Help(bot))
