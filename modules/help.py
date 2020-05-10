@@ -30,7 +30,7 @@ class Help(commands.Cog):
 
     @commands.command()
     async def info(self, ctx):
-        a = f"""Created by nekodroid#0001
+        a = f"""Created by meowsky#1916
 [Discord Bot List page](https://discordbots.org/bot/{BOT_ID}) - Upvote Nekodroïd and support us !
 🆕 [Sho! Music Network](https://www.youtube.com/channel/UCYuh-fE3VqvmdSmZYtioH4Q)
 [Invite link](https://discordapp.com/oauth2/authorize?client_id={BOT_ID}&scope=bot&permissions=2146958591)
