@@ -10,7 +10,7 @@ class DiscordBotsOrgAPI(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
-        self.token = 'DBLTOKEN'
+        self.token = DBLTOKEN
         self.dblpy = dbl.DBLClient(self.bot, self.token, autopost=True)
 
     async def on_guild_post():
